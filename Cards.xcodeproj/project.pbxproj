@@ -10,7 +10,6 @@
 		C603CCFF28DF7F6A00B7583E /* CardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C603CCFE28DF7F6A00B7583E /* CardsApp.swift */; };
 		C603CD0128DF7F6A00B7583E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C603CD0028DF7F6A00B7583E /* ContentView.swift */; };
 		C603CD0328DF7F6A00B7583E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C603CD0228DF7F6A00B7583E /* Assets.xcassets */; };
-		C603CD0728DF7F6A00B7583E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C603CD0628DF7F6A00B7583E /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,7 +18,6 @@
 		C603CD0028DF7F6A00B7583E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C603CD0228DF7F6A00B7583E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C603CD0428DF7F6A00B7583E /* Cards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cards.entitlements; sourceTree = "<group>"; };
-		C603CD0628DF7F6A00B7583E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,21 +50,28 @@
 		C603CCFD28DF7F6A00B7583E /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				C692ACEB28E0A0B600CDEE1A /* Resources */,
+				C692ACEA28E0A0AF00CDEE1A /* Views */,
 				C603CCFE28DF7F6A00B7583E /* CardsApp.swift */,
-				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
-				C603CD0228DF7F6A00B7583E /* Assets.xcassets */,
-				C603CD0428DF7F6A00B7583E /* Cards.entitlements */,
-				C603CD0528DF7F6A00B7583E /* Preview Content */,
 			);
 			path = Cards;
 			sourceTree = "<group>";
 		};
-		C603CD0528DF7F6A00B7583E /* Preview Content */ = {
+		C692ACEA28E0A0AF00CDEE1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C603CD0628DF7F6A00B7583E /* Preview Assets.xcassets */,
+				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
 			);
-			path = "Preview Content";
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C692ACEB28E0A0B600CDEE1A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C603CD0228DF7F6A00B7583E /* Assets.xcassets */,
+				C603CD0428DF7F6A00B7583E /* Cards.entitlements */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +132,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C603CD0728DF7F6A00B7583E /* Preview Assets.xcassets in Resources */,
 				C603CD0328DF7F6A00B7583E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -261,10 +265,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Cards/Cards.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Cards/Resources/Cards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Cards/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -297,10 +301,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Cards/Cards.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Cards/Resources/Cards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Cards/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
