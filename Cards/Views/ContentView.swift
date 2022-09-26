@@ -12,34 +12,28 @@ struct ContentView: View {
     @StateObject var model = CardsListViewModel()
     
     var body: some View {
-        ZStack {
-            #if os(macOS)
-            VisualEffectBlur(
-                material: .popover,
-                blendingMode: .behindWindow
-            )
-            .edgesIgnoringSafeArea(.all)
-            #endif
-            
-            NavigationStack {
+        NavigationStack {
+            ZStack {
+                #if os(macOS)
+                VisualEffectBlur(
+                    material: .popover,
+                    blendingMode: .behindWindow
+                )
+                .edgesIgnoringSafeArea(.all)
+                #endif
+                
                 ZStack {
-                    if let cards = model.displayingCards {
-                        if cards.isEmpty {
-                            /// Empty list
-                            Text("Finally, it is empty")
-                                .font(.title)
-                                .fontWeight(.medium)
-                                .fontDesign(.rounded)
-                                .foregroundStyle(.secondary)
-                        } else {
-                            /// Cards list
-                            
-                        }
-                    } else {
-                        /// Loading cards
-                        ProgressView()
+                    CardStack(
+                        direction: LeftRight.direction,
+                        data: model.cards
+                    ) { card, direction in
+                        print("Swiped \(card) to \(direction)")
+                    } content: { card, direction, isOnTop in
+                        CardContentView(card: card)
                     }
                 }
+                .frame(maxWidth: 300, maxHeight:  400)
+                .padding()
             }
         }
     }

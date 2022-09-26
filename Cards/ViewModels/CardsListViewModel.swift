@@ -9,12 +9,10 @@ import Foundation
 
 class CardsListViewModel: ObservableObject {
     
-    @Published var fetchedCards: [Card] = []
-    
-    @Published var displayingCards: [Card]?
+    @Published var cards: [Card] = []
     
     init() {
-        fetchedCards = [
+        cards = [
             Card(front: "Pester", back: "اذیت کردن / چشیدن"),
             Card(front: "Vice versa", back: "برعکس / در جهت مخالف"),
             Card(front: "Illusion", back: "وهم / خیال"),
@@ -22,7 +20,5 @@ class CardsListViewModel: ObservableObject {
             Card(front: "Leisure", back: "اوقات فراغت / فرصت / وقت کافی"),
             Card(front: "Glamour", back: "فریبندگی / زرق و برق / جادو / افسون"),
         ]
-        
-        displayingCards = fetchedCards
     }
 }
