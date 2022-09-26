@@ -8,14 +8,40 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject var model = CardsListViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack {
+            #if os(macOS)
+            VisualEffectBlur(
+                material: .popover,
+                blendingMode: .behindWindow
+            )
+            .edgesIgnoringSafeArea(.all)
+            #endif
+            
+            NavigationStack {
+                ZStack {
+                    if let cards = model.displayingCards {
+                        if cards.isEmpty {
+                            /// Empty list
+                            Text("Finally, it is empty")
+                                .font(.title)
+                                .fontWeight(.medium)
+                                .fontDesign(.rounded)
+                                .foregroundStyle(.secondary)
+                        } else {
+                            /// Cards list
+                            
+                        }
+                    } else {
+                        /// Loading cards
+                        ProgressView()
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 

@@ -13,5 +13,9 @@ struct CardsApp: App {
         WindowGroup {
             ContentView()
         }
+        #if DEBUG
+        .windowStyle(.hiddenTitleBar)
+        .windowToolbarStyle(.unified)
+        #endif
     }
 }
