@@ -27,4 +27,11 @@ class CardsListViewModel: ObservableObject {
             Card(front: "Glamour", back: "فریبندگی / زرق و برق / جادو / افسون"),
         ]
     }
+    
+    func updateCardStatus(card: Card, status: CardStatus) {
+        let index = self.cards.firstIndex(where: { $0.id == card.id })
+        if let index {
+            self.cards[index].status = status
+        }
+    }
 }

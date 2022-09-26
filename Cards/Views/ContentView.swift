@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @StateObject var model = CardsListViewModel()
+    @State private var showStats: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -23,16 +24,26 @@ struct ContentView: View {
                 #endif
                 
                 ZStack {
-                    Text("Finally, the list is empty")
-                        .font(.body)
+                    /// EmptyState
+                    Text("Finally, the list is empty. You can reset now.")
+                        .font(.title3)
                         .fontWeight(.medium)
                         .fontDesign(.rounded)
                         .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding()
                     
+                    /// Cards
                     CardStack(
                         direction: LeftRight.direction,
                         data: model.cards
                     ) { card, direction in
+                        switch direction {
+                        case .left:
+                            model.updateCardStatus(card: card, status: .knew)
+                        case .right:
+                            model.updateCardStatus(card: card, status: .forgot)
+                        }
                         print("Swiped \(card) to \(direction)")
                     } content: { card, direction, isOnTop in
                         CardContentView(card: card)
@@ -43,7 +54,7 @@ struct ContentView: View {
                 .padding()
             }
             .toolbar {
-                ToolbarItem {
+                ToolbarItemGroup {
                     Button(action: {
                         withAnimation {
                             model.rearrangeCards()
@@ -51,7 +62,16 @@ struct ContentView: View {
                     }) {
                         Label("Reload", systemImage: "arrow.counterclockwise")
                     }
+                    Button(action: {
+                        showStats.toggle()
+                    }) {
+                        Label("Stats", systemImage: "chart.bar.xaxis")
+                    }
                 }
+            }
+            .sheet(isPresented: $showStats) {
+                CardsStats()
+                    .environmentObject(model)
             }
         }
     }
