@@ -10,8 +10,14 @@ import Foundation
 class CardsListViewModel: ObservableObject {
     
     @Published var cards: [Card] = []
+    @Published var reloadToken = UUID()
     
     init() {
+        rearrangeCards()
+    }
+    
+    func rearrangeCards() {
+        self.reloadToken = UUID()
         cards = [
             Card(front: "Pester", back: "اذیت کردن / چشیدن"),
             Card(front: "Vice versa", back: "برعکس / در جهت مخالف"),

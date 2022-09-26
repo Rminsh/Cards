@@ -23,6 +23,12 @@ struct ContentView: View {
                 #endif
                 
                 ZStack {
+                    Text("Finally, the list is empty")
+                        .font(.body)
+                        .fontWeight(.medium)
+                        .fontDesign(.rounded)
+                        .foregroundStyle(.secondary)
+                    
                     CardStack(
                         direction: LeftRight.direction,
                         data: model.cards
@@ -31,9 +37,21 @@ struct ContentView: View {
                     } content: { card, direction, isOnTop in
                         CardContentView(card: card)
                     }
+                    .id(model.reloadToken)
                 }
                 .frame(maxWidth: 300, maxHeight:  400)
                 .padding()
+            }
+            .toolbar {
+                ToolbarItem {
+                    Button(action: {
+                        withAnimation {
+                            model.rearrangeCards()
+                        }
+                    }) {
+                        Label("Reload", systemImage: "arrow.counterclockwise")
+                    }
+                }
             }
         }
     }
