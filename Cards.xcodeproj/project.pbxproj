@@ -10,13 +10,15 @@
 		C603CCFF28DF7F6A00B7583E /* CardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C603CCFE28DF7F6A00B7583E /* CardsApp.swift */; };
 		C603CD0128DF7F6A00B7583E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C603CD0028DF7F6A00B7583E /* ContentView.swift */; };
 		C603CD0328DF7F6A00B7583E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C603CD0228DF7F6A00B7583E /* Assets.xcassets */; };
+		C60926FE28E31B8E00EE0873 /* Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C60926FC28E31B8E00EE0873 /* Cards.xcdatamodeld */; };
+		C609270028E31C0400EE0873 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60926FF28E31C0400EE0873 /* DataController.swift */; };
+		C609270228E35D7700EE0873 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C609270128E35D7700EE0873 /* AddView.swift */; };
 		C611A4C328E1A5FE00D98CA4 /* CardSwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */; };
 		C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C028E1A5FE00D98CA4 /* CardView.swift */; };
 		C611A4C528E1A5FE00D98CA4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C128E1A5FE00D98CA4 /* CardStack.swift */; };
 		C611A4C628E1A5FE00D98CA4 /* CardStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */; };
 		C670298628E20C440027D293 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298528E20C440027D293 /* CardContentView.swift */; };
-		C670298828E24EA80027D293 /* CardsStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* CardsStats.swift */; };
-		C692ACEE28E0A15700CDEE1A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692ACED28E0A15700CDEE1A /* Card.swift */; };
+		C670298828E24EA80027D293 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* Stats.swift */; };
 		C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */; };
 		C6DF111828E0AAE500AEE15B /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */; };
 /* End PBXBuildFile section */
@@ -27,13 +29,15 @@
 		C603CD0028DF7F6A00B7583E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C603CD0228DF7F6A00B7583E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C603CD0428DF7F6A00B7583E /* Cards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cards.entitlements; sourceTree = "<group>"; };
+		C60926FD28E31B8E00EE0873 /* Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cards.xcdatamodel; sourceTree = "<group>"; };
+		C60926FF28E31C0400EE0873 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		C609270128E35D7700EE0873 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSwipeDirection.swift; sourceTree = "<group>"; };
 		C611A4C028E1A5FE00D98CA4 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C611A4C128E1A5FE00D98CA4 /* CardStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackConfiguration.swift; sourceTree = "<group>"; };
 		C670298528E20C440027D293 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
-		C670298728E24EA80027D293 /* CardsStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsStats.swift; sourceTree = "<group>"; };
-		C692ACED28E0A15700CDEE1A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		C670298728E24EA80027D293 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
 		C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,9 +96,10 @@
 		C692ACEA28E0A0AF00CDEE1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C609270128E35D7700EE0873 /* AddView.swift */,
 				C670298528E20C440027D293 /* CardContentView.swift */,
 				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
-				C670298728E24EA80027D293 /* CardsStats.swift */,
+				C670298728E24EA80027D293 /* Stats.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			children = (
 				C603CD0228DF7F6A00B7583E /* Assets.xcassets */,
 				C603CD0428DF7F6A00B7583E /* Cards.entitlements */,
+				C60926FC28E31B8E00EE0873 /* Cards.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -111,7 +117,7 @@
 		C692ACEC28E0A12100CDEE1A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C692ACED28E0A15700CDEE1A /* Card.swift */,
+				C60926FF28E31C0400EE0873 /* DataController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,17 +208,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C609270228E35D7700EE0873 /* AddView.swift in Sources */,
 				C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */,
 				C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */,
 				C670298628E20C440027D293 /* CardContentView.swift in Sources */,
+				C60926FE28E31B8E00EE0873 /* Cards.xcdatamodeld in Sources */,
 				C611A4C628E1A5FE00D98CA4 /* CardStackConfiguration.swift in Sources */,
 				C611A4C528E1A5FE00D98CA4 /* CardStack.swift in Sources */,
 				C603CD0128DF7F6A00B7583E /* ContentView.swift in Sources */,
 				C611A4C328E1A5FE00D98CA4 /* CardSwipeDirection.swift in Sources */,
 				C6DF111828E0AAE500AEE15B /* VisualEffectBlur.swift in Sources */,
-				C692ACEE28E0A15700CDEE1A /* Card.swift in Sources */,
 				C603CCFF28DF7F6A00B7583E /* CardsApp.swift in Sources */,
-				C670298828E24EA80027D293 /* CardsStats.swift in Sources */,
+				C609270028E31C0400EE0873 /* DataController.swift in Sources */,
+				C670298828E24EA80027D293 /* Stats.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +357,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -385,7 +393,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -422,6 +430,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C60926FC28E31B8E00EE0873 /* Cards.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C60926FD28E31B8E00EE0873 /* Cards.xcdatamodel */,
+			);
+			currentVersion = C60926FD28E31B8E00EE0873 /* Cards.xcdatamodel */;
+			path = Cards.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C603CCF328DF7F6A00B7583E /* Project object */;
 }

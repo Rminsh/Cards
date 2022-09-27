@@ -9,29 +9,20 @@ import Foundation
 
 class CardsListViewModel: ObservableObject {
     
-    @Published var cards: [Card] = []
+    @Published var knewCards: [Card] = []
+    @Published var forgotCards: [Card] = []
     @Published var reloadToken = UUID()
     
-    init() {
-        rearrangeCards()
+    func addKnewCard(_ card: Card) {
+        self.knewCards.append(card)
     }
     
-    func rearrangeCards() {
-        self.reloadToken = UUID()
-        cards = [
-            Card(front: "Pester", back: "اذیت کردن / چشیدن"),
-            Card(front: "Vice versa", back: "برعکس / در جهت مخالف"),
-            Card(front: "Illusion", back: "وهم / خیال"),
-            Card(front: "Bargain", back: "معامله / داد و ستد / چانه زنی"),
-            Card(front: "Leisure", back: "اوقات فراغت / فرصت / وقت کافی"),
-            Card(front: "Glamour", back: "فریبندگی / زرق و برق / جادو / افسون"),
-        ]
+    func addForgotCard(_ card: Card) {
+        self.forgotCards.append(card)
     }
     
-    func updateCardStatus(card: Card, status: CardStatus) {
-        let index = self.cards.firstIndex(where: { $0.id == card.id })
-        if let index {
-            self.cards[index].status = status
-        }
+    func resetStats() {
+        self.knewCards.removeAll()
+        self.forgotCards.removeAll()
     }
 }

@@ -9,8 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @Environment(\.managedObjectContext) var moc
     @StateObject var model = CardsListViewModel()
+    @FetchRequest(sortDescriptors: []) var cards: FetchedResults<Card>
+    
+    @State private var showAdd  : Bool = false
     @State private var showStats: Bool = false
+    
+    @State private var frontText: String = ""
+    @State private var backText : String = ""
     
     var body: some View {
         NavigationStack {
@@ -25,24 +32,33 @@ struct ContentView: View {
                 
                 ZStack {
                     /// EmptyState
-                    Text("Finally, the list is empty. You can reset now.")
+                    VStack(spacing: 10) {
+                        Image(systemName: cards.isEmpty ? "rectangle.stack.fill.badge.plus" : "app.badge.checkmark.fill")
+                            .font(.largeTitle)
+                        
+                        Text(cards.isEmpty ?
+                             "Cards list is empty, add cards!" :
+                             "Finally, the list is empty. You can check the stats or reload cards."
+                        )
                         .font(.title3)
                         .fontWeight(.medium)
                         .fontDesign(.rounded)
-                        .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
-                        .padding()
+                    }
+                    .foregroundStyle(.secondary)
+                    .padding()
                     
                     /// Cards
                     CardStack(
                         direction: LeftRight.direction,
-                        data: model.cards
+                        data: cards,
+                        id: \.id
                     ) { card, direction in
                         switch direction {
                         case .left:
-                            model.updateCardStatus(card: card, status: .forgot)
+                            model.addForgotCard(card)
                         case .right:
-                            model.updateCardStatus(card: card, status: .knew)
+                            model.addKnewCard(card)
                         }
                     } content: { card, direction, isOnTop in
                         CardContentView(card: card, direction: direction)
@@ -54,13 +70,20 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItemGroup {
+                    /// Add Card
+                    Button(action: { showAdd.toggle() }) {
+                        Label("Add", systemImage: "plus")
+                    }
+                    /// Reloading Cards
                     Button(action: {
                         withAnimation {
-                            model.rearrangeCards()
+                            model.reloadToken = UUID()
+                            model.resetStats()
                         }
                     }) {
                         Label("Reload", systemImage: "arrow.counterclockwise")
                     }
+                    /// Show Stats of Cards
                     Button(action: {
                         showStats.toggle()
                     }) {
@@ -68,11 +91,27 @@ struct ContentView: View {
                     }
                 }
             }
+            .sheet(isPresented: $showAdd) {
+                AddView(
+                    frontText: $frontText,
+                    backText: $backText,
+                    saveAction: addCard
+                )
+            }
             .sheet(isPresented: $showStats) {
-                CardsStats()
+                Stats()
                     .environmentObject(model)
             }
         }
+    }
+    
+    func addCard() {
+        let card = Card(context: moc)
+        card.id = UUID()
+        card.front = frontText
+        card.back = backText
+        
+        try? moc.save()
     }
 }
 

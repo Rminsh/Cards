@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardsStats: View {
+struct Stats: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var model: CardsListViewModel
@@ -16,8 +16,8 @@ struct CardsStats: View {
         NavigationStack {
             List {
                 Section {
-                    ForEach(model.cards.filter({ $0.status == .forgot })) { card in
-                        Text("\(card.front): \(card.back)")
+                    ForEach(model.forgotCards) { card in
+                        Text("\(card.front ?? ""): \(card.back ?? "")")
                     }
                 } header: {
                     Label("Forgot", systemImage: "xmark.circle.fill")
@@ -26,8 +26,8 @@ struct CardsStats: View {
                 }
                 
                 Section {
-                    ForEach(model.cards.filter({ $0.status == .knew })) { card in
-                        Text("\(card.front): \(card.back)")
+                    ForEach(model.knewCards) { card in
+                        Text("\(card.front ?? ""): \(card.back ?? "")")
                     }
                 } header: {
                     Label("Knew", systemImage: "checkmark.circle.fill")
@@ -56,6 +56,6 @@ struct CardsStats: View {
 
 struct CardsStats_Previews: PreviewProvider {
     static var previews: some View {
-        CardsStats()
+        Stats()
     }
 }

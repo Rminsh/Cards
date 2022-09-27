@@ -27,14 +27,14 @@ struct CardContentView: View {
             .buttonStyle(.plain)
             .padding()
             
-            Text(card.front)
+            Text(card.front ?? "")
                 .font(.largeTitle)
                 .fontWeight(.medium)
                 .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             if showAnswer {
-                Text(card.back)
+                Text(card.back ?? "")
                     .font(.title3)
                     .fontWeight(.medium)
                     .fontDesign(.rounded)
@@ -97,7 +97,7 @@ struct CardContentView: View {
 struct CardContentView_Previews: PreviewProvider {
     static var previews: some View {
         CardContentView(
-            card: Card(front: "Front", back: "Back"),
+            card: Card(),
             direction: nil
         )
         .frame(maxWidth: 200, maxHeight: 350)
