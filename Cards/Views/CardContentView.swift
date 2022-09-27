@@ -40,16 +40,14 @@ struct CardContentView: View {
             .padding()
             
             Text(card.front ?? "")
-                .font(.largeTitle)
+                .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.medium)
-                .fontDesign(.rounded)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             if showAnswer {
                 Text(card.back ?? "")
-                    .font(.title3)
+                    .font(.system(.title3, design: .rounded))
                     .fontWeight(.medium)
-                    .fontDesign(.rounded)
                     .multilineTextAlignment(.center)
                     .frame(
                         maxWidth: .infinity,

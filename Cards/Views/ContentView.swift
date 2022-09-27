@@ -40,9 +40,8 @@ struct ContentView: View {
                              "Cards list is empty, add cards!" :
                              "Finally, the list is empty. You can check the stats or reload cards."
                         )
-                        .font(.title3)
+                        .font(.system(.title3, design: .rounded))
                         .fontWeight(.medium)
-                        .fontDesign(.rounded)
                         .multilineTextAlignment(.center)
                     }
                     .foregroundStyle(.secondary)
