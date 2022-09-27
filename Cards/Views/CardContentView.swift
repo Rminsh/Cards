@@ -38,6 +38,7 @@ struct CardContentView: View {
                     .font(.title3)
                     .fontWeight(.medium)
                     .fontDesign(.rounded)
+                    .multilineTextAlignment(.center)
                     .frame(
                         maxWidth: .infinity,
                         maxHeight: .infinity,
