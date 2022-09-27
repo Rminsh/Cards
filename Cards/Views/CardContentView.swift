@@ -10,6 +10,7 @@ import SwiftUI
 struct CardContentView: View {
     
     @State var card: Card
+    let direction: LeftRight?
     @State private var showAnswer: Bool = false
     
     var body: some View {
@@ -46,6 +47,36 @@ struct CardContentView: View {
                     .animation(.interactiveSpring(), value: showAnswer)
                     .transition(.move(edge: .bottom))
             }
+            
+            Image(systemName: "hand.thumbsup.circle")
+                .font(.largeTitle)
+                .imageScale(.large)
+                .foregroundColor(.green)
+                .symbolRenderingMode(.hierarchical)
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity,
+                    alignment: .leading
+                )
+                .padding()
+                .opacity(direction == .right ? 1 : 0)
+                .animation(.spring(), value: direction)
+                
+            
+            Image(systemName: "hand.thumbsdown.circle")
+                .font(.largeTitle)
+                .imageScale(.large)
+                .foregroundColor(.red)
+                .symbolRenderingMode(.hierarchical)
+                .frame(
+                    maxWidth: .infinity,
+                    maxHeight: .infinity,
+                    alignment: .trailing
+                )
+                .padding()
+                .opacity(direction == .left ? 1 : 0)
+                .animation(.spring(), value: direction)
+                
         }
         #if os(macOS)
         .background(
@@ -64,8 +95,11 @@ struct CardContentView: View {
 
 struct CardContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CardContentView(card: Card(front: "Front", back: "Back"))
-            .frame(maxWidth: 200, maxHeight: 350)
-            .padding(.all, 50)
+        CardContentView(
+            card: Card(front: "Front", back: "Back"),
+            direction: nil
+        )
+        .frame(maxWidth: 200, maxHeight: 350)
+        .padding(.all, 50)
     }
 }

@@ -40,13 +40,12 @@ struct ContentView: View {
                     ) { card, direction in
                         switch direction {
                         case .left:
-                            model.updateCardStatus(card: card, status: .knew)
-                        case .right:
                             model.updateCardStatus(card: card, status: .forgot)
+                        case .right:
+                            model.updateCardStatus(card: card, status: .knew)
                         }
-                        print("Swiped \(card) to \(direction)")
                     } content: { card, direction, isOnTop in
-                        CardContentView(card: card)
+                        CardContentView(card: card, direction: direction)
                     }
                     .id(model.reloadToken)
                 }
