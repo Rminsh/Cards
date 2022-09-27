@@ -51,7 +51,7 @@ struct ContentView: View {
                     /// Cards
                     CardStack(
                         direction: LeftRight.direction,
-                        data: cards,
+                        data: cards.reversed(),
                         id: \.id
                     ) { card, direction in
                         switch direction {
@@ -79,12 +79,7 @@ struct ContentView: View {
                         Label("Add", systemImage: "plus")
                     }
                     /// Reloading Cards
-                    Button(action: {
-                        withAnimation {
-                            model.reloadToken = UUID()
-                            model.resetStats()
-                        }
-                    }) {
+                    Button(action: reload) {
                         Label("Reload", systemImage: "arrow.counterclockwise")
                     }
                     /// Show Stats of Cards
@@ -108,6 +103,12 @@ struct ContentView: View {
             }
         }
     }
+    func reload() {
+        withAnimation {
+            model.reloadToken = UUID()
+            model.resetStats()
+        }
+    }
     
     func addCard() {
         let card = Card(context: moc)
@@ -116,6 +117,8 @@ struct ContentView: View {
         card.back = backText
         
         try? moc.save()
+        moc.refresh(card, mergeChanges: true)
+        reload()
     }
     
     func removeCard(_ card: Card) {
