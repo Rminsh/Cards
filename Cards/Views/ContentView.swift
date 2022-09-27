@@ -61,7 +61,11 @@ struct ContentView: View {
                             model.addKnewCard(card)
                         }
                     } content: { card, direction, isOnTop in
-                        CardContentView(card: card, direction: direction)
+                        CardContentView(
+                            card: card,
+                            direction: direction,
+                            deleteAction: { removeCard(card) }
+                        )
                     }
                     .id(model.reloadToken)
                 }
@@ -111,6 +115,11 @@ struct ContentView: View {
         card.front = frontText
         card.back = backText
         
+        try? moc.save()
+    }
+    
+    func removeCard(_ card: Card) {
+        moc.delete(card)
         try? moc.save()
     }
 }

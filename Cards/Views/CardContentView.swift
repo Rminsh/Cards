@@ -11,17 +11,29 @@ struct CardContentView: View {
     
     @State var card: Card
     let direction: LeftRight?
+    @State var deleteAction: () -> Void
+    
     @State private var showAnswer: Bool = false
+    @State private var showDeleteDialog: Bool = false
     
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            
-            Button(action: {
-                withAnimation {
-                    showAnswer.toggle()
+        ZStack(alignment: .top) {
+            HStack {
+                /// Delete card
+                Button(action: { showDeleteDialog.toggle() }) {
+                    Image(systemName: "trash.fill")
                 }
-            }) {
-                Image(systemName: "questionmark.circle.fill")
+                
+                Spacer()
+                
+                /// Show Answer
+                Button(action: {
+                    withAnimation {
+                        showAnswer.toggle()
+                    }
+                }) {
+                    Image(systemName: "questionmark.circle.fill")
+                }
             }
             .foregroundStyle(.secondary)
             .buttonStyle(.plain)
@@ -91,6 +103,10 @@ struct CardContentView: View {
         #endif
         .cornerRadius(12)
         .shadow(radius: 2)
+        .alert("Delete this card?", isPresented: $showDeleteDialog) {
+            Button("Delete", role: .destructive, action: deleteAction)
+            Button("Cancel", role: .cancel, action: {})
+        }
     }
 }
 
@@ -98,7 +114,8 @@ struct CardContentView_Previews: PreviewProvider {
     static var previews: some View {
         CardContentView(
             card: Card(),
-            direction: nil
+            direction: nil,
+            deleteAction: {}
         )
         .frame(maxWidth: 200, maxHeight: 350)
         .padding(.all, 50)
