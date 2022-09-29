@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @Environment(\.managedObjectContext) var moc
     @StateObject var model = CardsListViewModel()
-    @FetchRequest(sortDescriptors: []) var cards: FetchedResults<Card>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.creationDate)]) var cards: FetchedResults<Card>
     
     @State private var showAdd  : Bool = false
     @State private var showStats: Bool = false
@@ -114,6 +114,7 @@ struct ContentView: View {
         card.id = UUID()
         card.front = frontText
         card.back = backText
+        card.creationDate = Date()
         
         try? moc.save()
         moc.refresh(card, mergeChanges: true)
@@ -122,6 +123,7 @@ struct ContentView: View {
     
     func removeCard(_ card: Card) {
         moc.delete(card)
+        reload()
         try? moc.save()
     }
 }
