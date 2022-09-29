@@ -100,6 +100,9 @@ struct ContentView: View {
                 Stats()
                     .environmentObject(model)
             }
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("NewCard"))) {_ in
+                showAdd.toggle()
+            }
         }
     }
     func reload() {

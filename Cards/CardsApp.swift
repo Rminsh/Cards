@@ -21,6 +21,14 @@ struct CardsApp: App {
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified)
         .defaultSize(width: 450, height: 600)
+        .commands {
+            CommandGroup(replacing: CommandGroupPlacement.newItem) {
+                Button("New Card") {
+                    NotificationCenter.default.post(name: Notification.Name("NewCard"), object: nil)
+                }
+                .keyboardShortcut("n")
+            }
+        }
         #endif
     }
 }
