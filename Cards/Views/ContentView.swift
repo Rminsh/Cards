@@ -28,6 +28,13 @@ struct ContentView: View {
                     blendingMode: .behindWindow
                 )
                 .edgesIgnoringSafeArea(.all)
+                #elseif os(iOS)
+                LinearGradient(colors: [Color("GradientEnd"), Color("GradientStart")], startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                
+                Color(uiColor: UIColor.systemBackground)
+                    .opacity(0.3)
+                    .edgesIgnoringSafeArea(.all)
                 #endif
                 
                 ZStack {
