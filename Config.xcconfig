@@ -1,0 +1,19 @@
+//
+//  Config.xcconfig
+//  Cards
+//
+//  Created by Armin on 10/4/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// MARK: - App versions
+CONFIG_APP_VERSION = 1.0.0
+CONFIG_APP_BUNDLE_VERSION = 1
+
+// MARK: - App display name
+CONFIG_APP_NAME = Cards
+
+// MARK: - App Bundle Identifier
+CONFIG_BUNDLE_ID = com.app.cards-${DEVELOPMENT_TEAM}
