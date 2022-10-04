@@ -30,6 +30,9 @@ struct CardContentView: View {
                 Button(action: {
                     withAnimation {
                         showAnswer.toggle()
+                        #if os(iOS)
+                        HapticGenerator.shared.impact()
+                        #endif
                     }
                 }) {
                     Image(systemName: "questionmark.circle.fill")
@@ -39,11 +42,13 @@ struct CardContentView: View {
             .buttonStyle(.plain)
             .padding()
             
+            /// Front Text
             Text(card.front ?? "")
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.medium)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
+            /// Back Text
             if showAnswer {
                 Text(card.back ?? "")
                     .font(.system(.title3, design: .rounded))
@@ -59,6 +64,7 @@ struct CardContentView: View {
                     .transition(.move(edge: .bottom))
             }
             
+            /// Thumbs up
             Image(systemName: "hand.thumbsup.circle")
                 .font(.largeTitle)
                 .imageScale(.large)
@@ -73,7 +79,7 @@ struct CardContentView: View {
                 .opacity(direction == .right ? 1 : 0)
                 .animation(.spring(), value: direction)
                 
-            
+            /// Thumbs down
             Image(systemName: "hand.thumbsdown.circle")
                 .font(.largeTitle)
                 .imageScale(.large)
