@@ -27,6 +27,7 @@ struct CardView<Direction, Content: View>: View {
                 .offset(self.translation)
                 .rotationEffect(self.rotation(geometry))
                 .simultaneousGesture(self.isOnTop ? self.dragGesture(geometry) : nil)
+                .animation(.spring(), value: self.rotation(geometry))
         }
         .transition(transition)
     }
