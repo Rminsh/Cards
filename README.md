@@ -8,6 +8,8 @@
 ![Supported platforms](https://img.shields.io/badge/Platforms-iOS%2016.0+%20|%20macOS%2013.0-white?logo=apple)
 ![Xcode version](https://img.shields.io/badge/Xcode%2014.1+-black?logo=xcode)
 
+![preview](https://github.com/Rminsh/Cards/raw/main/preview.GIF)
+
 ### License 📝
 
 Licensed under the [GNU GENERAL PUBLIC LICENSE Version 3](https://github.com/Rminsh/Cards/blob/main/LICENSE.md).
