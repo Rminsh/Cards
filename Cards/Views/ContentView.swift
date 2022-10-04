@@ -117,6 +117,9 @@ struct ContentView: View {
             model.reloadToken = UUID()
             model.resetStats()
         }
+        #if os(iOS)
+        HapticGenerator.shared.impact(style: .heavy)
+        #endif
     }
     
     func addCard() {
