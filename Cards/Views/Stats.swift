@@ -28,6 +28,12 @@ struct Stats: View {
                 ForEach(model.forgotCards) { card in
                     Text("\(card.front ?? ""): \(card.back ?? "")")
                 }
+                
+                if model.forgotCards.isEmpty {
+                    Text("🎉 Yay! The forgot list is empty")
+                        .frame(maxWidth: .infinity)
+                        .foregroundStyle(.secondary)
+                }
             } header: {
                 Label("Forgot", systemImage: "xmark.circle.fill")
                     .symbolRenderingMode(.hierarchical)
@@ -37,6 +43,12 @@ struct Stats: View {
             Section {
                 ForEach(model.knewCards) { card in
                     Text("\(card.front ?? ""): \(card.back ?? "")")
+                }
+                
+                if model.knewCards.isEmpty {
+                    Text("🤔 Huh, The knew list is empty")
+                        .frame(maxWidth: .infinity)
+                        .foregroundStyle(.secondary)
                 }
             } header: {
                 Label("Knew", systemImage: "checkmark.circle.fill")
