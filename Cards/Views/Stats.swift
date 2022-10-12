@@ -63,7 +63,16 @@ struct Stats: View {
 }
 
 struct CardsStats_Previews: PreviewProvider {
+    struct Preview: View {
+        
+        @StateObject var model = CardsListViewModel()
+        
+        var body: some View {
+            Stats()
+                .environmentObject(model)
+        }
+    }
     static var previews: some View {
-        Stats()
+        Preview()
     }
 }
