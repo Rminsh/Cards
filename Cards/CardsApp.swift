@@ -20,7 +20,6 @@ struct CardsApp: App {
         #if os(macOS)
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified)
-        .defaultSize(width: 450, height: 600)
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.newItem) {
                 Button("New Card") {

@@ -16,26 +16,34 @@ struct AddView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationStack {
-            Form {
-                TextField("Front", text: $frontText)
-                TextField("Back", text: $backText)
-            }
-            #if os(macOS)
-            .padding()
-            .frame(minWidth: 250, minHeight: 100)
-            #endif
-            .toolbar {
-                ToolbarItem(placement: .cancellationAction) {
-                    Button("Cancel") {
-                        dismiss()
-                    }
+        #if os(iOS)
+        NavigationView {
+            content
+        }
+        #else
+        content
+        #endif
+    }
+    
+    var content: some View {
+        Form {
+            TextField("Front", text: $frontText)
+            TextField("Back", text: $backText)
+        }
+        #if os(macOS)
+        .padding()
+        .frame(minWidth: 250, minHeight: 100)
+        #endif
+        .toolbar {
+            ToolbarItem(placement: .cancellationAction) {
+                Button("Cancel") {
+                    dismiss()
                 }
-                ToolbarItem(placement: .primaryAction) {
-                    Button("Save") {
-                        dismiss()
-                        saveAction()
-                    }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Button("Save") {
+                    dismiss()
+                    saveAction()
                 }
             }
         }

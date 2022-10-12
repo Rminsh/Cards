@@ -5,8 +5,8 @@
 </p>
 
 ![SwiftUI](https://img.shields.io/badge/SwiftUI-black?logo=swift)
-![Supported platforms](https://img.shields.io/badge/Platforms-iOS%2016.0+%20|%20macOS%2013.0-white?logo=apple)
-![Xcode version](https://img.shields.io/badge/Xcode%2014.1+-black?logo=xcode)
+![Supported platforms](https://img.shields.io/badge/Platforms-iOS%2015.0+%20|%20macOS%2012.0-white?logo=apple)
+![Xcode version](https://img.shields.io/badge/Xcode%2014.0+-black?logo=xcode)
 
 ![preview](https://github.com/Rminsh/Cards/raw/main/preview.GIF)
 

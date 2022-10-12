@@ -13,41 +13,49 @@ struct Stats: View {
     @EnvironmentObject var model: CardsListViewModel
     
     var body: some View {
-        NavigationStack {
-            List {
-                Section {
-                    ForEach(model.forgotCards) { card in
-                        Text("\(card.front ?? ""): \(card.back ?? "")")
-                    }
-                } header: {
-                    Label("Forgot", systemImage: "xmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundColor(.red)
+        #if os(iOS)
+        NavigationView {
+            content
+        }
+        #else
+        content
+        #endif
+    }
+    
+    var content: some View {
+        List {
+            Section {
+                ForEach(model.forgotCards) { card in
+                    Text("\(card.front ?? ""): \(card.back ?? "")")
                 }
-                
-                Section {
-                    ForEach(model.knewCards) { card in
-                        Text("\(card.front ?? ""): \(card.back ?? "")")
-                    }
-                } header: {
-                    Label("Knew", systemImage: "checkmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundColor(.green)
-                }
+            } header: {
+                Label("Forgot", systemImage: "xmark.circle.fill")
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundColor(.red)
             }
-            #if os(macOS)
-            .listStyle(.inset(alternatesRowBackgrounds: true))
-            .frame(minWidth: 350, minHeight: 500)
-            #endif
-            .navigationTitle("Stats")
-            .toolbar {
-                ToolbarItem {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Label("Close", systemImage: "xmark.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
-                    }
+            
+            Section {
+                ForEach(model.knewCards) { card in
+                    Text("\(card.front ?? ""): \(card.back ?? "")")
+                }
+            } header: {
+                Label("Knew", systemImage: "checkmark.circle.fill")
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundColor(.green)
+            }
+        }
+        #if os(macOS)
+        .listStyle(.inset(alternatesRowBackgrounds: true))
+        .frame(minWidth: 350, minHeight: 500)
+        #endif
+        .navigationTitle("Stats")
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    dismiss()
+                } label: {
+                    Label("Close", systemImage: "xmark.circle.fill")
+                        .symbolRenderingMode(.hierarchical)
                 }
             }
         }
