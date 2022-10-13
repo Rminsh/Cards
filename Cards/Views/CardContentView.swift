@@ -23,6 +23,9 @@ struct CardContentView: View {
                 Button(action: { showDeleteDialog.toggle() }) {
                     Image(systemName: "trash.fill")
                 }
+                #if os(iOS)
+                .hoverEffect(.lift)
+                #endif
                 
                 Spacer()
                 
@@ -37,8 +40,11 @@ struct CardContentView: View {
                 }) {
                     Image(systemName: "questionmark.circle.fill")
                 }
+                #if os(iOS)
+                .hoverEffect(.lift)
+                #endif
             }
-            .foregroundStyle(.secondary)
+            .opacity(0.65)
             .buttonStyle(.plain)
             .padding()
             
