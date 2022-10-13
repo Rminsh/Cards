@@ -24,6 +24,7 @@ struct ContentView: View {
         NavigationView {
             content
         }
+        .navigationViewStyle(.stack)
         #else
         content
         #endif
