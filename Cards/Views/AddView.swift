@@ -38,15 +38,22 @@ struct AddView: View {
             ToolbarItem(placement: .cancellationAction) {
                 Button("Cancel") {
                     dismiss()
+                    clearFields()
                 }
             }
             ToolbarItem(placement: .primaryAction) {
                 Button("Save") {
                     dismiss()
                     saveAction()
+                    clearFields()
                 }
             }
         }
+    }
+    
+    func clearFields() {
+        frontText = ""
+        backText = ""
     }
 }
 
