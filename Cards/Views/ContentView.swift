@@ -15,6 +15,7 @@ struct ContentView: View {
     
     @State private var showAdd  : Bool = false
     @State private var showStats: Bool = false
+    @State private var showHint:  Bool = true
     
     @State private var frontText: String = ""
     @State private var backText : String = ""
@@ -32,6 +33,7 @@ struct ContentView: View {
     
     var content: some View {
         ZStack {
+            /// Background
             #if os(macOS)
             VisualEffectBlur(
                 material: .popover,
@@ -47,6 +49,7 @@ struct ContentView: View {
                 .edgesIgnoringSafeArea(.all)
             #endif
             
+            /// Base content
             ZStack {
                 /// EmptyState
                 VStack(spacing: 10) {
@@ -87,6 +90,38 @@ struct ContentView: View {
             }
             .frame(maxWidth: 300, maxHeight:  400)
             .padding()
+            
+            /// Hints
+            HStack {
+                if showHint {
+                    Spacer()
+                    VStack(spacing: 15) {
+                        Image(systemName: "arrow.turn.up.left")
+                            .font(.title2)
+                        Text("Swipe left for forgot")
+                            .font(.callout)
+                    }
+                    Spacer()
+                    VStack(spacing: 15) {
+                        Image(systemName: "arrow.turn.up.right")
+                            .font(.title2)
+                        Text("Swipe right for knew")
+                            .font(.callout)
+                    }
+                    Spacer()
+                }
+            }
+            .foregroundStyle(.secondary)
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding()
+            .animation(.easeIn, value: showHint)
+            .onAppear {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    withAnimation {
+                        self.showHint.toggle()
+                    }
+                }
+            }
         }
         .toolbar {
             ToolbarItemGroup {
