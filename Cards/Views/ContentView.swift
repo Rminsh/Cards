@@ -116,7 +116,7 @@ struct ContentView: View {
             .padding()
             .animation(.easeIn, value: showHint)
             .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                     withAnimation {
                         self.showHint.toggle()
                     }
