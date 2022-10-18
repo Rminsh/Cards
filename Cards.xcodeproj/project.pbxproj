@@ -25,7 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C603CCFB28DF7F6A00B7583E /* Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C603CCFB28DF7F6A00B7583E /* Tiny Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tiny Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C603CCFE28DF7F6A00B7583E /* CardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsApp.swift; sourceTree = "<group>"; };
 		C603CD0028DF7F6A00B7583E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C603CD0228DF7F6A00B7583E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -70,7 +70,7 @@
 		C603CCFC28DF7F6A00B7583E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C603CCFB28DF7F6A00B7583E /* Cards.app */,
+				C603CCFB28DF7F6A00B7583E /* Tiny Cards.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -163,7 +163,7 @@
 			);
 			name = Cards;
 			productName = Cards;
-			productReference = C603CCFB28DF7F6A00B7583E /* Cards.app */;
+			productReference = C603CCFB28DF7F6A00B7583E /* Tiny Cards.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
