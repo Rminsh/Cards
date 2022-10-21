@@ -53,7 +53,9 @@ struct CardContentView: View {
             Text(frontText)
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.medium)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .multilineTextAlignment(.center)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                .padding(.horizontal)
             
             /// Back Text
             if showAnswer {
@@ -124,12 +126,12 @@ struct CardContentView: View {
 struct CardContentView_Previews: PreviewProvider {
     static var previews: some View {
         CardContentView(
-            frontText: "Front text",
-            backText: "Back text",
+            frontText: "Front text with some long text for testing",
+            backText: "Back text with some long text for testing",
             direction: nil,
             deleteAction: {}
         )
-        .frame(maxWidth: 200, maxHeight: 350)
+        .frame(maxWidth: 350, maxHeight: 400)
         .padding(.all, 50)
     }
 }
