@@ -81,7 +81,8 @@ struct ContentView: View {
                     }
                 } content: { card, direction, isOnTop in
                     CardContentView(
-                        card: card,
+                        frontText: card.front ?? "",
+                        backText: card.back ?? "",
                         direction: direction,
                         deleteAction: { removeCard(card) }
                     )

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CardContentView: View {
     
-    @State var card: Card
+    @State var frontText: String
+    @State var backText : String
     let direction: LeftRight?
     @State var deleteAction: () -> Void
     
@@ -49,14 +50,14 @@ struct CardContentView: View {
             .padding()
             
             /// Front Text
-            Text(card.front ?? "")
+            Text(frontText)
                 .font(.system(.largeTitle, design: .rounded))
                 .fontWeight(.medium)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             
             /// Back Text
             if showAnswer {
-                Text(card.back ?? "")
+                Text(backText)
                     .font(.system(.title3, design: .rounded))
                     .fontWeight(.medium)
                     .multilineTextAlignment(.center)
@@ -123,7 +124,8 @@ struct CardContentView: View {
 struct CardContentView_Previews: PreviewProvider {
     static var previews: some View {
         CardContentView(
-            card: Card(),
+            frontText: "Front text",
+            backText: "Back text",
             direction: nil,
             deleteAction: {}
         )
