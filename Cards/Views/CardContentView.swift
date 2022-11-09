@@ -112,7 +112,7 @@ struct CardContentView: View {
             )
         )
         #elseif os(iOS)
-        .background(.thinMaterial)
+        .background(.ultraThinMaterial)
         #endif
         .cornerRadius(12)
         .shadow(radius: 2)
