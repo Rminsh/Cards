@@ -17,6 +17,9 @@ struct CardContentView: View {
     @State private var showAnswer: Bool = false
     @State private var showDeleteDialog: Bool = false
     
+    @AppStorage("leftOptionIcon") var leftOptionIcon: String = "hand.thumbsdown.circle"
+    @AppStorage("rightOptionIcon") var rightOptionIcon: String = "hand.thumbsup.circle"
+    
     var body: some View {
         ZStack(alignment: .top) {
             HStack {
@@ -73,8 +76,8 @@ struct CardContentView: View {
                     .transition(.move(edge: .bottom))
             }
             
-            /// Thumbs up
-            Image(systemName: "hand.thumbsup.circle")
+            /// Right swipe
+            Image(systemName: rightOptionIcon)
                 .font(.largeTitle)
                 .imageScale(.large)
                 .foregroundColor(.green)
@@ -88,8 +91,8 @@ struct CardContentView: View {
                 .opacity(direction == .right ? 1 : 0)
                 .animation(.spring(), value: direction)
                 
-            /// Thumbs down
-            Image(systemName: "hand.thumbsdown.circle")
+            /// Left swipe
+            Image(systemName: leftOptionIcon)
                 .font(.largeTitle)
                 .imageScale(.large)
                 .foregroundColor(.red)

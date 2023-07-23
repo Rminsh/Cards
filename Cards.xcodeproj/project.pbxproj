@@ -22,6 +22,8 @@
 		C670298828E24EA80027D293 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* Stats.swift */; };
 		C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */; };
 		C6DF111828E0AAE500AEE15B /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */; };
+		C6FCF7F32A6DA99E009F37C9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */; };
+		C6FCF7F62A6DB1F7009F37C9 /* SymbolPicker in Frameworks */ = {isa = PBXBuildFile; productRef = C6FCF7F52A6DB1F7009F37C9 /* SymbolPicker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,7 @@
 		C670298728E24EA80027D293 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
 		C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
+		C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6FCF7F62A6DB1F7009F37C9 /* SymbolPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,6 +110,7 @@
 				C670298528E20C440027D293 /* CardContentView.swift */,
 				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
 				C670298728E24EA80027D293 /* Stats.swift */,
+				C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -162,6 +167,9 @@
 			dependencies = (
 			);
 			name = Cards;
+			packageProductDependencies = (
+				C6FCF7F52A6DB1F7009F37C9 /* SymbolPicker */,
+			);
 			productName = Cards;
 			productReference = C603CCFB28DF7F6A00B7583E /* Tiny Cards.app */;
 			productType = "com.apple.product-type.application";
@@ -190,6 +198,9 @@
 				Base,
 			);
 			mainGroup = C603CCF228DF7F6A00B7583E;
+			packageReferences = (
+				C6FCF7F42A6DB1F7009F37C9 /* XCRemoteSwiftPackageReference "SymbolPicker" */,
+			);
 			productRefGroup = C603CCFC28DF7F6A00B7583E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6FCF7F32A6DA99E009F37C9 /* SettingsView.swift in Sources */,
 				C609270228E35D7700EE0873 /* AddView.swift in Sources */,
 				C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */,
 				C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */,
@@ -370,10 +382,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = "$(CONFIG_APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
@@ -409,10 +421,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = "$(CONFIG_APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
@@ -446,6 +458,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C6FCF7F42A6DB1F7009F37C9 /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/xnth97/SymbolPicker?ref=iosexample.com";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C6FCF7F52A6DB1F7009F37C9 /* SymbolPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C6FCF7F42A6DB1F7009F37C9 /* XCRemoteSwiftPackageReference "SymbolPicker" */;
+			productName = SymbolPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C60926FC28E31B8E00EE0873 /* Cards.xcdatamodeld */ = {

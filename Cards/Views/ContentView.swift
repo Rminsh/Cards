@@ -13,22 +13,24 @@ struct ContentView: View {
     @StateObject var model = CardsListViewModel()
     @FetchRequest(sortDescriptors: [SortDescriptor(\.creationDate)]) var cards: FetchedResults<Card>
     
-    @State private var showAdd  : Bool = false
+    @State private var showAdd: Bool = false
     @State private var showStats: Bool = false
-    @State private var showHint:  Bool = true
+    @State private var showHint: Bool = true
+    @State private var showSettings: Bool = false
     
     @State private var frontText: String = ""
     @State private var backText : String = ""
     
+    @AppStorage("leftOptionIcon") var leftOptionIcon: String = "hand.thumbsdown.circle"
+    @AppStorage("leftOptionTitle") var leftOptionTitle: String = "Forgot"
+    
+    @AppStorage("rightOptionIcon") var rightOptionIcon: String = "hand.thumbsup.circle"
+    @AppStorage("rightOptionTitle") var rightOptionTitle: String = "Knew"
+    
     var body: some View {
-        #if os(iOS)
-        NavigationView {
+        NavigationStack {
             content
         }
-        .navigationViewStyle(.stack)
-        #else
-        content
-        #endif
     }
     
     var content: some View {
@@ -93,16 +95,16 @@ struct ContentView: View {
                 if showHint {
                     Spacer()
                     VStack(spacing: 15) {
-                        Image(systemName: "arrow.turn.up.left")
+                        Image(systemName: leftOptionIcon)
                             .font(.title2)
-                        Text("Swipe left for forgot")
+                        Text("Swipe left for \(leftOptionTitle)")
                             .font(.callout)
                     }
                     Spacer()
                     VStack(spacing: 15) {
-                        Image(systemName: "arrow.turn.up.right")
+                        Image(systemName: rightOptionIcon)
                             .font(.title2)
-                        Text("Swipe right for knew")
+                        Text("Swipe right for \(rightOptionTitle)")
                             .font(.callout)
                     }
                     Spacer()
@@ -121,11 +123,14 @@ struct ContentView: View {
             }
         }
         .toolbar {
-            ToolbarItemGroup {
+            ToolbarItemGroup(placement: .navigation) {
                 /// Add Card
                 Button(action: { showAdd.toggle() }) {
                     Label("Add", systemImage: "plus")
                 }
+            }
+            
+            ToolbarItemGroup {
                 /// Reloading Cards
                 Button(action: reload) {
                     Label("Reload", systemImage: "arrow.counterclockwise")
@@ -135,6 +140,12 @@ struct ContentView: View {
                     showStats.toggle()
                 }) {
                     Label("Stats", systemImage: "chart.bar.xaxis")
+                }
+                
+                Button {
+                    showSettings.toggle()
+                } label: {
+                    Label("Settings", systemImage: "gear")
                 }
             }
         }
@@ -148,6 +159,12 @@ struct ContentView: View {
         .sheet(isPresented: $showStats) {
             Stats()
                 .environmentObject(model)
+        }
+        .sheet(isPresented: $showSettings) {
+            SettingsView()
+                #if os(macOS)
+                .frame(minWidth: 350, minHeight: 450)
+                #endif
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("NewCard"))) {_ in
             showAdd.toggle()

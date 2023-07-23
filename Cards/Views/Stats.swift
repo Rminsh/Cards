@@ -12,14 +12,16 @@ struct Stats: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var model: CardsListViewModel
     
+    @AppStorage("leftOptionIcon") var leftOptionIcon: String = "hand.thumbsdown.circle"
+    @AppStorage("leftOptionTitle") var leftOptionTitle: String = "Forgot"
+    
+    @AppStorage("rightOptionIcon") var rightOptionIcon: String = "hand.thumbsup.circle"
+    @AppStorage("rightOptionTitle") var rightOptionTitle: String = "Knew"
+    
     var body: some View {
-        #if os(iOS)
-        NavigationView {
+        NavigationStack {
             content
         }
-        #else
-        content
-        #endif
     }
     
     var content: some View {
@@ -30,14 +32,14 @@ struct Stats: View {
                 }
                 
                 if model.forgotCards.isEmpty {
-                    Text("🎉 Yay! The forgot list is empty")
+                    Text("The \(leftOptionTitle) list is empty")
                         .frame(maxWidth: .infinity)
                         .foregroundStyle(.secondary)
                 }
             } header: {
-                Label("Forgot", systemImage: "xmark.circle.fill")
+                Label(leftOptionTitle, systemImage: leftOptionIcon)
                     .symbolRenderingMode(.hierarchical)
-                    .foregroundColor(.red)
+                    .foregroundStyle(.red.gradient)
             }
             
             Section {
@@ -46,14 +48,14 @@ struct Stats: View {
                 }
                 
                 if model.knewCards.isEmpty {
-                    Text("🤔 Huh, The knew list is empty")
+                    Text("The \(rightOptionTitle) list is empty")
                         .frame(maxWidth: .infinity)
                         .foregroundStyle(.secondary)
                 }
             } header: {
-                Label("Knew", systemImage: "checkmark.circle.fill")
+                Label(rightOptionTitle, systemImage: rightOptionIcon)
                     .symbolRenderingMode(.hierarchical)
-                    .foregroundColor(.green)
+                    .foregroundStyle(.green.gradient)
             }
         }
         #if os(macOS)
