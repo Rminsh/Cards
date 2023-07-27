@@ -37,7 +37,7 @@ struct CardContentView: View {
                 Button(action: {
                     withAnimation {
                         showAnswer.toggle()
-                        #if os(iOS)
+                        #if os(iOS) && !os(xrOS)
                         HapticGenerator.shared.impact()
                         #endif
                     }

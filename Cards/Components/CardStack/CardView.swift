@@ -41,7 +41,7 @@ struct CardView<Direction, Content: View>: View {
                 self.translation = value.translation
                 if let direction = self.swipeDirection(geometry) {
                     withAnimation(self.configuration.animation) { self.onSwipe(direction) }
-                    #if os(iOS)
+                    #if os(iOS) && !os(xrOS)
                     HapticGenerator.shared.impact()
                     #endif
                 } else {
