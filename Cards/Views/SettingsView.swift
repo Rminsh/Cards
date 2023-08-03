@@ -27,66 +27,86 @@ struct SettingsView: View {
     
     var body: some View {
         NavigationStack {
-            List {
-                Section("Right Section") {
-                    HStack {
-                        Button {
-                            presentedSheet = .right
-                        } label: {
-                            Image(systemName: rightOptionIcon)
-                                .font(.title)
-                                .frame(alignment: .center)
-                        }
-                        #if os(iOS)
-                        .padding(12)
-                        .background(.ultraThinMaterial)
-                        .clipShape(.circle)
-                        .shadow(radius: 0.5)
-                        #endif
-                        
-                        TextField("Right section title", text: $rightOptionTitle)
-                    }
-                }
+            ZStack {
+                #if os(iOS)
+                Color("BackgroundColor")
+                    .ignoresSafeArea(.all)
+                #endif
                 
-                Section("Left Section") {
-                    HStack {
-                        Button {
-                            presentedSheet = .left
-                        } label: {
-                            Image(systemName: leftOptionIcon)
-                                .font(.title)
-                                .frame(alignment: .center)
-                        }
-                        #if os(iOS)
-                        .padding(12)
-                        .background(.ultraThinMaterial)
-                        .clipShape(.circle)
-                        .shadow(radius: 0.5)
-                        #endif
-                        
-                        TextField("Left section title", text: $leftOptionTitle)
-                    }
-                }
+                content
             }
-            .navigationTitle("Cards swipes")
-            .toolbar {
-                ToolbarItem {
+        }
+    }
+    
+    var content: some View {
+        List {
+            Section("Right Section") {
+                HStack {
                     Button {
-                        presentationMode.wrappedValue.dismiss()
+                        presentedSheet = .right
                     } label: {
-                        Label("Close", systemImage: "xmark.circle.fill")
-                            .symbolRenderingMode(.hierarchical)
+                        Image(systemName: rightOptionIcon)
+                            .font(.title)
+                            .frame(alignment: .center)
                     }
-
+                    #if os(iOS)
+                    .padding(12)
+                    .background(.ultraThinMaterial)
+                    .clipShape(.circle)
+                    .shadow(radius: 0.5)
+                    #endif
+                    
+                    TextField("Right section title", text: $rightOptionTitle)
                 }
             }
-            .sheet(item: $presentedSheet) { sheet in
-                switch sheet {
-                case .left:
-                    SymbolPicker(symbol: $leftOptionIcon)
-                case .right:
-                    SymbolPicker(symbol: $rightOptionIcon)
+            #if os(iOS)
+            .listRowBackground(Color("BackgroundSecondColor"))
+            #endif
+            
+            Section("Left Section") {
+                HStack {
+                    Button {
+                        presentedSheet = .left
+                    } label: {
+                        Image(systemName: leftOptionIcon)
+                            .font(.title)
+                            .frame(alignment: .center)
+                    }
+                    #if os(iOS)
+                    .padding(12)
+                    .background(.ultraThinMaterial)
+                    .clipShape(.circle)
+                    .shadow(radius: 0.5)
+                    #endif
+                    
+                    TextField("Left section title", text: $leftOptionTitle)
                 }
+            }
+            #if os(iOS)
+            .listRowBackground(Color("BackgroundSecondColor"))
+            #endif
+        }
+        #if os(iOS)
+        .scrollContentBackground(.hidden)
+        #endif
+        .navigationTitle("Cards swipes")
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Label("Close", systemImage: "xmark.circle.fill")
+                        .symbolRenderingMode(.hierarchical)
+                }
+
+            }
+        }
+        .sheet(item: $presentedSheet) { sheet in
+            switch sheet {
+            case .left:
+                SymbolPicker(symbol: $leftOptionIcon)
+            case .right:
+                SymbolPicker(symbol: $rightOptionIcon)
             }
         }
     }
