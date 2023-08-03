@@ -18,6 +18,7 @@ struct CardsApp: App {
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
         #if os(macOS)
+        .defaultSize(width: 500, height: 700)
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified)
         .commands {

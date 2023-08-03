@@ -16,13 +16,16 @@ struct AddView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        #if os(iOS)
-        NavigationView {
-            content
+        NavigationStack {
+            ZStack {
+                #if os(iOS)
+                Color("BackgroundColor")
+                    .ignoresSafeArea(.all)
+                #endif
+                
+                content
+            }
         }
-        #else
-        content
-        #endif
     }
     
     var content: some View {
