@@ -20,7 +20,14 @@ struct Stats: View {
     
     var body: some View {
         NavigationStack {
-            content
+            ZStack {
+                #if os(iOS)
+                Color("BackgroundColor")
+                    .ignoresSafeArea(.all)
+                #endif
+                
+                content
+            }
         }
     }
     
@@ -41,6 +48,9 @@ struct Stats: View {
                     .symbolRenderingMode(.hierarchical)
                     .foregroundStyle(.red.gradient)
             }
+            #if os(iOS)
+            .listRowBackground(Color("BackgroundSecondColor"))
+            #endif
             
             Section {
                 ForEach(model.knewCards) { card in
@@ -57,10 +67,15 @@ struct Stats: View {
                     .symbolRenderingMode(.hierarchical)
                     .foregroundStyle(.green.gradient)
             }
+            #if os(iOS)
+            .listRowBackground(Color("BackgroundSecondColor"))
+            #endif
         }
         #if os(macOS)
         .listStyle(.inset(alternatesRowBackgrounds: true))
         .frame(minWidth: 350, minHeight: 500)
+        #elseif os(iOS)
+        .scrollContentBackground(.hidden)
         #endif
         .navigationTitle("Stats")
         .toolbar {
