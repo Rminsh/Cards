@@ -1,6 +1,6 @@
 <p align="center">
   <img src="Cards/Resources/Assets.xcassets/AppIcon.appiconset/512x512@2x.png" height="192">
-  <h1 align="center">Tiny Cards</h1>
+  <h1 align="center">Swift Mind</h1>
 	<h4 align="center">A Simple flash cards app for iOS and macOS</h4>
 </p>
 
