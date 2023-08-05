@@ -52,7 +52,7 @@ struct SettingsView: View {
                     #if os(iOS)
                     .padding(12)
                     .background(.ultraThinMaterial)
-                    .clipShape(.circle)
+                    .clipShape(Circle())
                     .shadow(radius: 0.5)
                     #endif
                     
@@ -75,7 +75,7 @@ struct SettingsView: View {
                     #if os(iOS)
                     .padding(12)
                     .background(.ultraThinMaterial)
-                    .clipShape(.circle)
+                    .clipShape(Circle())
                     .shadow(radius: 0.5)
                     #endif
                     
