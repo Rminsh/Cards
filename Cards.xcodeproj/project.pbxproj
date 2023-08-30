@@ -95,10 +95,10 @@
 		C611A4BE28E1A5FE00D98CA4 /* CardStack */ = {
 			isa = PBXGroup;
 			children = (
-				C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */,
-				C611A4C028E1A5FE00D98CA4 /* CardView.swift */,
 				C611A4C128E1A5FE00D98CA4 /* CardStack.swift */,
 				C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */,
+				C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */,
+				C611A4C028E1A5FE00D98CA4 /* CardView.swift */,
 			);
 			path = CardStack;
 			sourceTree = "<group>";
@@ -109,8 +109,8 @@
 				C609270128E35D7700EE0873 /* AddCardView.swift */,
 				C670298528E20C440027D293 /* CardContentView.swift */,
 				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
-				C670298728E24EA80027D293 /* StatsView.swift */,
 				C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */,
+				C670298728E24EA80027D293 /* StatsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -145,8 +145,8 @@
 			isa = PBXGroup;
 			children = (
 				C611A4BE28E1A5FE00D98CA4 /* CardStack */,
-				C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */,
 				C652B57A28EC955100F2A08D /* HapticGenerator.swift */,
+				C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C603CCFA28DF7F6A00B7583E = {
 						CreatedOnToolsVersion = 14.1;
@@ -252,6 +252,7 @@
 			baseConfigurationReference = C64B4FEF28EC218100629103 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -281,9 +282,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -311,6 +314,7 @@
 			baseConfigurationReference = C64B4FEF28EC218100629103 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -340,9 +344,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -367,6 +373,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cards/Resources/Cards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CONFIG_APP_BUNDLE_VERSION)";
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -407,6 +414,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cards/Resources/Cards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CONFIG_APP_BUNDLE_VERSION)";
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;

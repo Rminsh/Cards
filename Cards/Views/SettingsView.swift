@@ -29,7 +29,7 @@ struct SettingsView: View {
         NavigationStack {
             ZStack {
                 #if os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .ignoresSafeArea(.all)
                 #endif
                 
@@ -60,7 +60,7 @@ struct SettingsView: View {
                 }
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
             
             Section("Left Section") {
@@ -83,7 +83,7 @@ struct SettingsView: View {
                 }
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
         }
         #if os(iOS)

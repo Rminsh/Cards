@@ -38,7 +38,7 @@ struct ContentView: View {
                 )
                 .edgesIgnoringSafeArea(.all)
                 #elseif os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .edgesIgnoringSafeArea(.all)
                 #endif
                 content

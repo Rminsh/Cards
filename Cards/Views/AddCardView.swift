@@ -19,7 +19,7 @@ struct AddCardView: View {
         NavigationStack {
             ZStack {
                 #if os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .ignoresSafeArea(.all)
                 #endif
                 

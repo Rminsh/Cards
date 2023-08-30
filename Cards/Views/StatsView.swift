@@ -22,7 +22,7 @@ struct StatsView: View {
         NavigationStack {
             ZStack {
                 #if os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .ignoresSafeArea(.all)
                 #endif
                 
@@ -66,7 +66,7 @@ struct StatsView: View {
                     .foregroundStyle(.red.gradient)
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
             
             Section {
@@ -85,7 +85,7 @@ struct StatsView: View {
                     .foregroundStyle(.green.gradient)
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
         }
         #if os(macOS)
