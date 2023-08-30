@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct AddCardView: View {
     
     @Binding var frontText: String
     @Binding var backText: String
@@ -95,7 +95,7 @@ struct AddView: View {
 }
 
 #Preview {
-    AddView(
+    AddCardView(
         frontText: .constant(""),
         backText: .constant(""),
         saveAction: {}

@@ -71,7 +71,7 @@ struct ContentView: View {
                 }
             }
             .sheet(isPresented: $showAdd) {
-                AddView(
+                AddCardView(
                     frontText: $frontText,
                     backText: $backText,
                     saveAction: addCard
