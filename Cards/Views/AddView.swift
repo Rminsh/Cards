@@ -25,6 +25,21 @@ struct AddView: View {
                 
                 content
             }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                        clearFields()
+                    }
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Save") {
+                        dismiss()
+                        saveAction()
+                        clearFields()
+                    }
+                }
+            }
         }
     }
     
@@ -71,21 +86,6 @@ struct AddView: View {
         .cornerRadius(12)
         .shadow(radius: 2)
         .padding()
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Cancel") {
-                    dismiss()
-                    clearFields()
-                }
-            }
-            ToolbarItem(placement: .primaryAction) {
-                Button("Save") {
-                    dismiss()
-                    saveAction()
-                    clearFields()
-                }
-            }
-        }
     }
     
     func clearFields() {
@@ -94,12 +94,10 @@ struct AddView: View {
     }
 }
 
-struct AddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView(
-            frontText: .constant(""),
-            backText: .constant(""),
-            saveAction: {}
-        )
-    }
+#Preview {
+    AddView(
+        frontText: .constant(""),
+        backText: .constant(""),
+        saveAction: {}
+    )
 }

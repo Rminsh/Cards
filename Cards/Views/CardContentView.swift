@@ -126,15 +126,13 @@ struct CardContentView: View {
     }
 }
 
-struct CardContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardContentView(
-            frontText: "Front text with some long text for testing",
-            backText: "Back text with some long text for testing",
-            direction: nil,
-            deleteAction: {}
-        )
-        .frame(maxWidth: 350, maxHeight: 400)
-        .padding(.all, 50)
-    }
+#Preview {
+    CardContentView(
+        frontText: "Front text with some long text for testing",
+        backText: "Back text with some long text for testing",
+        direction: nil,
+        deleteAction: {}
+    )
+    .frame(maxWidth: 350, maxHeight: 400)
+    .padding(.all, 50)
 }

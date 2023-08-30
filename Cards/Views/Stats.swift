@@ -28,6 +28,23 @@ struct Stats: View {
                 
                 content
             }
+            .navigationTitle("Stats")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        dismiss()
+                    } label: {
+                        #if os(iOS)
+                        Label("Close", systemImage: "xmark.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                        #elseif os(macOS)
+                        Text("Close")
+                        #elseif os(xrOS)
+                        Label("Close", systemImage: "xmark")
+                        #endif
+                    }
+                }
+            }
         }
     }
     
@@ -77,37 +94,11 @@ struct Stats: View {
         #elseif os(iOS)
         .scrollContentBackground(.hidden)
         #endif
-        .navigationTitle("Stats")
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    dismiss()
-                } label: {
-                    #if os(iOS)
-                    Label("Close", systemImage: "xmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                    #elseif os(macOS)
-                    Text("Close")
-                    #elseif os(xrOS)
-                    Label("Close", systemImage: "xmark")
-                    #endif
-                }
-            }
-        }
     }
 }
 
-struct CardsStats_Previews: PreviewProvider {
-    struct Preview: View {
-        
-        @StateObject var model = CardsListViewModel()
-        
-        var body: some View {
-            Stats()
-                .environmentObject(model)
-        }
-    }
-    static var previews: some View {
-        Preview()
-    }
+#Preview {
+    @StateObject var model = CardsListViewModel()
+    
+    return Stats().environmentObject(model)
 }
