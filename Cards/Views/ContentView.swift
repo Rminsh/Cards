@@ -204,5 +204,8 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    @StateObject var dataController = DataController()
+    
+    return ContentView()
+        .environment(\.managedObjectContext, dataController.container.viewContext)
 }

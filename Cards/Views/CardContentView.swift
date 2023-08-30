@@ -79,7 +79,7 @@ struct CardContentView: View {
             Image(systemName: rightOptionIcon)
                 .font(.largeTitle)
                 .imageScale(.large)
-                .foregroundColor(.green)
+                .foregroundStyle(.green)
                 .symbolRenderingMode(.hierarchical)
                 .frame(
                     maxWidth: .infinity,
@@ -97,7 +97,7 @@ struct CardContentView: View {
             Image(systemName: leftOptionIcon)
                 .font(.largeTitle)
                 .imageScale(.large)
-                .foregroundColor(.red)
+                .foregroundStyle(.red)
                 .symbolRenderingMode(.hierarchical)
                 .frame(
                     maxWidth: .infinity,
