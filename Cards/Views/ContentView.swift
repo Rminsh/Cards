@@ -78,7 +78,7 @@ struct ContentView: View {
                 )
             }
             .sheet(isPresented: $showStats) {
-                Stats()
+                StatsView()
                     .environmentObject(model)
             }
             .sheet(isPresented: $showSettings) {

@@ -1,5 +1,5 @@
 //
-//  CardsStats.swift
+//  StatsView.swift
 //  Cards
 //
 //  Created by Armin on 9/27/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Stats: View {
+struct StatsView: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var model: CardsListViewModel
@@ -100,5 +100,5 @@ struct Stats: View {
 #Preview {
     @StateObject var model = CardsListViewModel()
     
-    return Stats().environmentObject(model)
+    return StatsView().environmentObject(model)
 }
