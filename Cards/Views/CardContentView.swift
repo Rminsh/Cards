@@ -37,15 +37,14 @@ struct CardContentView: View {
                 Button(action: {
                     withAnimation {
                         showAnswer.toggle()
-                        #if os(iOS)
-                        HapticGenerator.shared.impact()
-                        #endif
                     }
                 }) {
                     Image(systemName: "questionmark.circle.fill")
                 }
                 #if !os(macOS)
                 .hoverEffect(.lift)
+                #elseif !os(xrOS)
+                .sensoryFeedback(.warning, trigger: showAnswer)
                 #endif
             }
             .opacity(0.65)
@@ -90,6 +89,9 @@ struct CardContentView: View {
                 .padding()
                 .opacity(direction == .right ? 1 : 0)
                 .animation(.spring(), value: direction)
+                #if !os(xrOS)
+                .sensoryFeedback(.impact(weight: .heavy), trigger: direction == .right)
+                #endif
                 
             /// Left swipe
             Image(systemName: leftOptionIcon)
@@ -105,7 +107,9 @@ struct CardContentView: View {
                 .padding()
                 .opacity(direction == .left ? 1 : 0)
                 .animation(.spring(), value: direction)
-                
+                #if !os(xrOS)
+                .sensoryFeedback(.impact(weight: .heavy), trigger: direction == .left)
+                #endif
         }
         #if os(macOS)
         .background(

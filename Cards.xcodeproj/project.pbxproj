@@ -17,7 +17,6 @@
 		C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C028E1A5FE00D98CA4 /* CardView.swift */; };
 		C611A4C528E1A5FE00D98CA4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C128E1A5FE00D98CA4 /* CardStack.swift */; };
 		C611A4C628E1A5FE00D98CA4 /* CardStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */; };
-		C652B57B28EC955100F2A08D /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652B57A28EC955100F2A08D /* HapticGenerator.swift */; };
 		C670298628E20C440027D293 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298528E20C440027D293 /* CardContentView.swift */; };
 		C670298828E24EA80027D293 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* StatsView.swift */; };
 		C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */; };
@@ -41,7 +40,6 @@
 		C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackConfiguration.swift; sourceTree = "<group>"; };
 		C64B4FEE28EC207800629103 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C64B4FEF28EC218100629103 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		C652B57A28EC955100F2A08D /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
 		C670298528E20C440027D293 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
 		C670298728E24EA80027D293 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
@@ -145,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				C611A4BE28E1A5FE00D98CA4 /* CardStack */,
-				C652B57A28EC955100F2A08D /* HapticGenerator.swift */,
 				C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */,
 			);
 			path = Components;
@@ -239,7 +236,6 @@
 				C6DF111828E0AAE500AEE15B /* VisualEffectBlur.swift in Sources */,
 				C603CCFF28DF7F6A00B7583E /* CardsApp.swift in Sources */,
 				C609270028E31C0400EE0873 /* DataController.swift in Sources */,
-				C652B57B28EC955100F2A08D /* HapticGenerator.swift in Sources */,
 				C670298828E24EA80027D293 /* StatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,10 +385,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = "$(CONFIG_APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
@@ -430,10 +426,10 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = "$(CONFIG_APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";

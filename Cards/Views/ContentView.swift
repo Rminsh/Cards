@@ -134,6 +134,11 @@ struct ContentView: View {
                     )
                 }
                 .id(model.reloadToken)
+                #if !os(xrOS)
+                .sensoryFeedback(.levelChange, trigger: model.reloadToken)
+                .sensoryFeedback(.success, trigger: model.knewCards)
+                .sensoryFeedback(.error, trigger: model.forgotCards)
+                #endif
             }
             .frame(maxWidth: 300, maxHeight:  400)
             .padding()
@@ -177,9 +182,6 @@ struct ContentView: View {
             model.reloadToken = UUID()
             model.resetStats()
         }
-        #if os(iOS)
-        HapticGenerator.shared.impact(style: .heavy)
-        #endif
     }
     
     func addCard() {
