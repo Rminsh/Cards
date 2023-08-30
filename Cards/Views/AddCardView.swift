@@ -48,12 +48,8 @@ struct AddCardView: View {
             TextField("Front text", text: $frontText)
                 .font(.system(.largeTitle, design: .rounded))
                 .multilineTextAlignment(.center)
-                .textFieldStyle(.plain)
-                .padding(.vertical)
-                .background(
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(Color.primary.opacity(0.05))
-                )
+                .textFieldStyle(.roundedBorder)
+                .controlSize(.extraLarge)
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity,
@@ -64,12 +60,8 @@ struct AddCardView: View {
             TextField("Back text", text: $backText)
                 .font(.system(.title3, design: .rounded))
                 .multilineTextAlignment(.center)
-                .textFieldStyle(.plain)
-                .padding(.vertical, 8)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.primary.opacity(0.05))
-                )
+                .textFieldStyle(.roundedBorder)
+                .controlSize(.large)
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity,
@@ -79,7 +71,7 @@ struct AddCardView: View {
         }
         #if os(macOS)
         .frame(width: 300, height: 400)
-        #elseif os(iOS)
+        #else
         .background(.thinMaterial)
         .frame(maxWidth: 300, maxHeight: 400)
         #endif
