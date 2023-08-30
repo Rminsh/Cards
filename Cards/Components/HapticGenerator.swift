@@ -4,7 +4,7 @@
 //
 //  Created by Armin on 10/4/22.
 //
-#if os(iOS) && !os(xrOS)
+#if os(iOS)
 import UIKit
 
 class HapticGenerator {

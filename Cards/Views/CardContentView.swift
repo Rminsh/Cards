@@ -27,7 +27,7 @@ struct CardContentView: View {
                 Button(action: { showDeleteDialog.toggle() }) {
                     Image(systemName: "trash.fill")
                 }
-                #if os(iOS)
+                #if !os(macOS)
                 .hoverEffect(.lift)
                 #endif
                 
@@ -37,14 +37,14 @@ struct CardContentView: View {
                 Button(action: {
                     withAnimation {
                         showAnswer.toggle()
-                        #if os(iOS) && !os(xrOS)
+                        #if os(iOS)
                         HapticGenerator.shared.impact()
                         #endif
                     }
                 }) {
                     Image(systemName: "questionmark.circle.fill")
                 }
-                #if os(iOS)
+                #if !os(macOS)
                 .hoverEffect(.lift)
                 #endif
             }
@@ -114,7 +114,7 @@ struct CardContentView: View {
                 blendingMode: .withinWindow
             )
         )
-        #elseif os(iOS)
+        #else
         .background(.ultraThinMaterial)
         #endif
         .cornerRadius(12)

@@ -42,7 +42,7 @@ struct ContentView: View {
                 blendingMode: .behindWindow
             )
             .edgesIgnoringSafeArea(.all)
-            #elseif os(iOS) && !os(xrOS)
+            #elseif os(iOS)
             Color("BackgroundColor")
                 .edgesIgnoringSafeArea(.all)
             #endif
@@ -176,7 +176,7 @@ struct ContentView: View {
             model.reloadToken = UUID()
             model.resetStats()
         }
-        #if os(iOS) && !os(xrOS)
+        #if os(iOS)
         HapticGenerator.shared.impact(style: .heavy)
         #endif
     }

@@ -95,10 +95,15 @@ struct SettingsView: View {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
+                    #if os(iOS)
                     Label("Close", systemImage: "xmark.circle.fill")
                         .symbolRenderingMode(.hierarchical)
+                    #elseif os(macOS)
+                    Text("Close")
+                    #elseif os(xrOS)
+                    Label("Close", systemImage: "xmark")
+                    #endif
                 }
-
             }
         }
         .sheet(item: $presentedSheet) { sheet in

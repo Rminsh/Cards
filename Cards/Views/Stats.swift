@@ -83,8 +83,14 @@ struct Stats: View {
                 Button {
                     dismiss()
                 } label: {
+                    #if os(iOS)
                     Label("Close", systemImage: "xmark.circle.fill")
                         .symbolRenderingMode(.hierarchical)
+                    #elseif os(macOS)
+                    Text("Close")
+                    #elseif os(xrOS)
+                    Label("Close", systemImage: "xmark")
+                    #endif
                 }
             }
         }
