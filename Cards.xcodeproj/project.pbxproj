@@ -17,6 +17,7 @@
 		C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C028E1A5FE00D98CA4 /* CardView.swift */; };
 		C611A4C528E1A5FE00D98CA4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C128E1A5FE00D98CA4 /* CardStack.swift */; };
 		C611A4C628E1A5FE00D98CA4 /* CardStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */; };
+		C6178E382B7185FE009D70CD /* DirectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6178E372B7185FE009D70CD /* DirectionSection.swift */; };
 		C670298628E20C440027D293 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298528E20C440027D293 /* CardContentView.swift */; };
 		C670298828E24EA80027D293 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* StatsView.swift */; };
 		C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */; };
@@ -38,6 +39,7 @@
 		C611A4C028E1A5FE00D98CA4 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C611A4C128E1A5FE00D98CA4 /* CardStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackConfiguration.swift; sourceTree = "<group>"; };
+		C6178E372B7185FE009D70CD /* DirectionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionSection.swift; sourceTree = "<group>"; };
 		C64B4FEE28EC207800629103 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C64B4FEF28EC218100629103 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		C670298528E20C440027D293 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
 				C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */,
 				C670298728E24EA80027D293 /* StatsView.swift */,
+				C6178E372B7185FE009D70CD /* DirectionSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				C609270228E35D7700EE0873 /* AddCardView.swift in Sources */,
 				C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */,
 				C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */,
+				C6178E382B7185FE009D70CD /* DirectionSection.swift in Sources */,
 				C670298628E20C440027D293 /* CardContentView.swift in Sources */,
 				C60926FE28E31B8E00EE0873 /* Cards.xcdatamodeld in Sources */,
 				C611A4C628E1A5FE00D98CA4 /* CardStackConfiguration.swift in Sources */,

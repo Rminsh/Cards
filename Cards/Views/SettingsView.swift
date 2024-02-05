@@ -8,7 +8,7 @@
 import SwiftUI
 import SymbolPicker
 
-struct SettingsView: View {
+struct SettingsView {
     @Environment(\.presentationMode) var presentationMode
     
     @State var presentedSheet: SheetSection?
@@ -21,10 +21,11 @@ struct SettingsView: View {
     
     enum SheetSection: String, Identifiable {
         case left, right
-        
         var id: String { rawValue }
     }
-    
+}
+
+extension SettingsView: View {
     var body: some View {
         NavigationStack {
             ZStack {
@@ -33,85 +34,68 @@ struct SettingsView: View {
                     .ignoresSafeArea(.all)
                 #endif
                 
-                content
+                #if os(visionOS)
+                ScrollView {
+                    VStack {
+                        content
+                            .padding()
+                    }
+                }
+                #else
+                List {
+                    content
+                }
+                #endif
+            }
+            #if os(iOS)
+            .scrollContentBackground(.hidden)
+            #endif
+            .navigationTitle("Cards swipes")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        presentationMode.wrappedValue.dismiss()
+                    } label: {
+                        #if os(iOS)
+                        Label("Close", systemImage: "xmark.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                        #elseif os(macOS)
+                        Text("Close")
+                        #elseif os(visionOS)
+                        Label("Close", systemImage: "xmark")
+                        #endif
+                    }
+                }
+            }
+            .sheet(item: $presentedSheet) { sheet in
+                switch sheet {
+                case .left:
+                    SymbolPicker(symbol: $leftOptionIcon)
+                case .right:
+                    SymbolPicker(symbol: $rightOptionIcon)
+                }
             }
         }
     }
     
     var content: some View {
-        List {
-            Section("Right Section") {
-                HStack {
-                    Button {
-                        presentedSheet = .right
-                    } label: {
-                        Image(systemName: rightOptionIcon)
-                            .font(.title)
-                            .frame(alignment: .center)
-                    }
-                    #if os(iOS)
-                    .padding(12)
-                    .background(.ultraThinMaterial)
-                    .clipShape(Circle())
-                    .shadow(radius: 0.5)
-                    #endif
-                    
-                    TextField("Right section title", text: $rightOptionTitle)
-                }
+        Group {
+            DirectionSection(
+                title: "Right Section",
+                icon: rightOptionIcon,
+                description: "Right section title",
+                text: $rightOptionTitle
+            ) {
+                presentedSheet = .right
             }
-            #if os(iOS)
-            .listRowBackground(Color.backgroundSecond)
-            #endif
             
-            Section("Left Section") {
-                HStack {
-                    Button {
-                        presentedSheet = .left
-                    } label: {
-                        Image(systemName: leftOptionIcon)
-                            .font(.title)
-                            .frame(alignment: .center)
-                    }
-                    #if os(iOS)
-                    .padding(12)
-                    .background(.ultraThinMaterial)
-                    .clipShape(Circle())
-                    .shadow(radius: 0.5)
-                    #endif
-                    
-                    TextField("Left section title", text: $leftOptionTitle)
-                }
-            }
-            #if os(iOS)
-            .listRowBackground(Color.backgroundSecond)
-            #endif
-        }
-        #if os(iOS)
-        .scrollContentBackground(.hidden)
-        #endif
-        .navigationTitle("Cards swipes")
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    #if os(iOS)
-                    Label("Close", systemImage: "xmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                    #elseif os(macOS)
-                    Text("Close")
-                    #elseif os(visionOS)
-                    Label("Close", systemImage: "xmark")
-                    #endif
-                }
-            }
-        }
-        .sheet(item: $presentedSheet) { sheet in
-            switch sheet {
-            case .left:
-                SymbolPicker(symbol: $leftOptionIcon)
-            case .right:
-                SymbolPicker(symbol: $rightOptionIcon)
+            DirectionSection(
+                title: "Left Section",
+                icon: leftOptionIcon,
+                description: "Left section title",
+                text: $leftOptionTitle
+            ) {
+                presentedSheet = .left
             }
         }
     }
