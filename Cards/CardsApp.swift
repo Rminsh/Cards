@@ -18,9 +18,13 @@ struct CardsApp: App {
                 .environment(\.managedObjectContext, dataController.container.viewContext)
         }
         #if os(macOS)
-        .defaultSize(width: 500, height: 700)
         .windowStyle(.hiddenTitleBar)
         .windowToolbarStyle(.unified)
+        .defaultSize(width: 500, height: 700)
+        #elseif os(visionOS)
+        .defaultSize(width: 600, height: 750)
+        #endif
+        #if os(visionOS) || os(macOS)
         .commands {
             CommandGroup(replacing: CommandGroupPlacement.newItem) {
                 Button("New Card") {
