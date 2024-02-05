@@ -29,7 +29,7 @@ struct SettingsView: View {
         NavigationStack {
             ZStack {
                 #if os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .ignoresSafeArea(.all)
                 #endif
                 
@@ -60,7 +60,7 @@ struct SettingsView: View {
                 }
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
             
             Section("Left Section") {
@@ -83,7 +83,7 @@ struct SettingsView: View {
                 }
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
         }
         #if os(iOS)
@@ -95,10 +95,15 @@ struct SettingsView: View {
                 Button {
                     presentationMode.wrappedValue.dismiss()
                 } label: {
+                    #if os(iOS)
                     Label("Close", systemImage: "xmark.circle.fill")
                         .symbolRenderingMode(.hierarchical)
+                    #elseif os(macOS)
+                    Text("Close")
+                    #elseif os(visionOS)
+                    Label("Close", systemImage: "xmark")
+                    #endif
                 }
-
             }
         }
         .sheet(item: $presentedSheet) { sheet in
@@ -112,8 +117,6 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
+#Preview {
+    SettingsView()
 }

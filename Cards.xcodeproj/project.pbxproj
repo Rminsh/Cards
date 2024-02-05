@@ -12,14 +12,13 @@
 		C603CD0328DF7F6A00B7583E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C603CD0228DF7F6A00B7583E /* Assets.xcassets */; };
 		C60926FE28E31B8E00EE0873 /* Cards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C60926FC28E31B8E00EE0873 /* Cards.xcdatamodeld */; };
 		C609270028E31C0400EE0873 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60926FF28E31C0400EE0873 /* DataController.swift */; };
-		C609270228E35D7700EE0873 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C609270128E35D7700EE0873 /* AddView.swift */; };
+		C609270228E35D7700EE0873 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C609270128E35D7700EE0873 /* AddCardView.swift */; };
 		C611A4C328E1A5FE00D98CA4 /* CardSwipeDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */; };
 		C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C028E1A5FE00D98CA4 /* CardView.swift */; };
 		C611A4C528E1A5FE00D98CA4 /* CardStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C128E1A5FE00D98CA4 /* CardStack.swift */; };
 		C611A4C628E1A5FE00D98CA4 /* CardStackConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */; };
-		C652B57B28EC955100F2A08D /* HapticGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C652B57A28EC955100F2A08D /* HapticGenerator.swift */; };
 		C670298628E20C440027D293 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298528E20C440027D293 /* CardContentView.swift */; };
-		C670298828E24EA80027D293 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* Stats.swift */; };
+		C670298828E24EA80027D293 /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C670298728E24EA80027D293 /* StatsView.swift */; };
 		C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */; };
 		C6DF111828E0AAE500AEE15B /* VisualEffectBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */; };
 		C6FCF7F32A6DA99E009F37C9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */; };
@@ -34,16 +33,15 @@
 		C603CD0428DF7F6A00B7583E /* Cards.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cards.entitlements; sourceTree = "<group>"; };
 		C60926FD28E31B8E00EE0873 /* Cards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Cards.xcdatamodel; sourceTree = "<group>"; };
 		C60926FF28E31C0400EE0873 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		C609270128E35D7700EE0873 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		C609270128E35D7700EE0873 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
 		C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardSwipeDirection.swift; sourceTree = "<group>"; };
 		C611A4C028E1A5FE00D98CA4 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C611A4C128E1A5FE00D98CA4 /* CardStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStack.swift; sourceTree = "<group>"; };
 		C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackConfiguration.swift; sourceTree = "<group>"; };
 		C64B4FEE28EC207800629103 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C64B4FEF28EC218100629103 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		C652B57A28EC955100F2A08D /* HapticGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticGenerator.swift; sourceTree = "<group>"; };
 		C670298528E20C440027D293 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
-		C670298728E24EA80027D293 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
+		C670298728E24EA80027D293 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		C692ACF028E0A74B00CDEE1A /* CardsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsListViewModel.swift; sourceTree = "<group>"; };
 		C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisualEffectBlur.swift; sourceTree = "<group>"; };
 		C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -95,10 +93,10 @@
 		C611A4BE28E1A5FE00D98CA4 /* CardStack */ = {
 			isa = PBXGroup;
 			children = (
-				C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */,
-				C611A4C028E1A5FE00D98CA4 /* CardView.swift */,
 				C611A4C128E1A5FE00D98CA4 /* CardStack.swift */,
 				C611A4C228E1A5FE00D98CA4 /* CardStackConfiguration.swift */,
+				C611A4BF28E1A5FE00D98CA4 /* CardSwipeDirection.swift */,
+				C611A4C028E1A5FE00D98CA4 /* CardView.swift */,
 			);
 			path = CardStack;
 			sourceTree = "<group>";
@@ -106,11 +104,11 @@
 		C692ACEA28E0A0AF00CDEE1A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C609270128E35D7700EE0873 /* AddView.swift */,
+				C609270128E35D7700EE0873 /* AddCardView.swift */,
 				C670298528E20C440027D293 /* CardContentView.swift */,
 				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
-				C670298728E24EA80027D293 /* Stats.swift */,
 				C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */,
+				C670298728E24EA80027D293 /* StatsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -146,7 +144,6 @@
 			children = (
 				C611A4BE28E1A5FE00D98CA4 /* CardStack */,
 				C6DF111728E0AAE500AEE15B /* VisualEffectBlur.swift */,
-				C652B57A28EC955100F2A08D /* HapticGenerator.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -182,7 +179,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1410;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					C603CCFA28DF7F6A00B7583E = {
 						CreatedOnToolsVersion = 14.1;
@@ -227,7 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6FCF7F32A6DA99E009F37C9 /* SettingsView.swift in Sources */,
-				C609270228E35D7700EE0873 /* AddView.swift in Sources */,
+				C609270228E35D7700EE0873 /* AddCardView.swift in Sources */,
 				C611A4C428E1A5FE00D98CA4 /* CardView.swift in Sources */,
 				C692ACF128E0A74B00CDEE1A /* CardsListViewModel.swift in Sources */,
 				C670298628E20C440027D293 /* CardContentView.swift in Sources */,
@@ -239,8 +236,7 @@
 				C6DF111828E0AAE500AEE15B /* VisualEffectBlur.swift in Sources */,
 				C603CCFF28DF7F6A00B7583E /* CardsApp.swift in Sources */,
 				C609270028E31C0400EE0873 /* DataController.swift in Sources */,
-				C652B57B28EC955100F2A08D /* HapticGenerator.swift in Sources */,
-				C670298828E24EA80027D293 /* Stats.swift in Sources */,
+				C670298828E24EA80027D293 /* StatsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +248,7 @@
 			baseConfigurationReference = C64B4FEF28EC218100629103 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -281,9 +278,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -311,6 +310,7 @@
 			baseConfigurationReference = C64B4FEF28EC218100629103 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -340,9 +340,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -367,6 +369,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cards/Resources/Cards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CONFIG_APP_BUNDLE_VERSION)";
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -382,18 +385,19 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = "$(CONFIG_APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Debug;
 		};
@@ -406,6 +410,7 @@
 				CODE_SIGN_ENTITLEMENTS = Cards/Resources/Cards.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(CONFIG_APP_BUNDLE_VERSION)";
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
@@ -421,18 +426,19 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = "$(CONFIG_APP_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = "$(CONFIG_BUNDLE_ID)";
 				PRODUCT_NAME = "$(CONFIG_APP_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,7";
 			};
 			name = Release;
 		};

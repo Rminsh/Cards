@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddView: View {
+struct AddCardView: View {
     
     @Binding var frontText: String
     @Binding var backText: String
@@ -19,11 +19,26 @@ struct AddView: View {
         NavigationStack {
             ZStack {
                 #if os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .ignoresSafeArea(.all)
                 #endif
                 
                 content
+            }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        dismiss()
+                        clearFields()
+                    }
+                }
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Save") {
+                        dismiss()
+                        saveAction()
+                        clearFields()
+                    }
+                }
             }
         }
     }
@@ -33,12 +48,8 @@ struct AddView: View {
             TextField("Front text", text: $frontText)
                 .font(.system(.largeTitle, design: .rounded))
                 .multilineTextAlignment(.center)
-                .textFieldStyle(.plain)
-                .padding(.vertical)
-                .background(
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(Color.primary.opacity(0.05))
-                )
+                .textFieldStyle(.roundedBorder)
+                .controlSize(.extraLarge)
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity,
@@ -49,12 +60,8 @@ struct AddView: View {
             TextField("Back text", text: $backText)
                 .font(.system(.title3, design: .rounded))
                 .multilineTextAlignment(.center)
-                .textFieldStyle(.plain)
-                .padding(.vertical, 8)
-                .background(
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(Color.primary.opacity(0.05))
-                )
+                .textFieldStyle(.roundedBorder)
+                .controlSize(.large)
                 .frame(
                     maxWidth: .infinity,
                     maxHeight: .infinity,
@@ -64,28 +71,13 @@ struct AddView: View {
         }
         #if os(macOS)
         .frame(width: 300, height: 400)
-        #elseif os(iOS)
+        #else
         .background(.thinMaterial)
         .frame(maxWidth: 300, maxHeight: 400)
         #endif
         .cornerRadius(12)
         .shadow(radius: 2)
         .padding()
-        .toolbar {
-            ToolbarItem(placement: .cancellationAction) {
-                Button("Cancel") {
-                    dismiss()
-                    clearFields()
-                }
-            }
-            ToolbarItem(placement: .primaryAction) {
-                Button("Save") {
-                    dismiss()
-                    saveAction()
-                    clearFields()
-                }
-            }
-        }
     }
     
     func clearFields() {
@@ -94,12 +86,10 @@ struct AddView: View {
     }
 }
 
-struct AddView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddView(
-            frontText: .constant(""),
-            backText: .constant(""),
-            saveAction: {}
-        )
-    }
+#Preview {
+    AddCardView(
+        frontText: .constant(""),
+        backText: .constant(""),
+        saveAction: {}
+    )
 }

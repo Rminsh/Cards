@@ -29,24 +29,72 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            content
+            ZStack {
+                /// Background
+                #if os(macOS)
+                VisualEffectBlur(
+                    material: .popover,
+                    blendingMode: .behindWindow
+                )
+                .edgesIgnoringSafeArea(.all)
+                #elseif os(iOS)
+                Color.background
+                    .edgesIgnoringSafeArea(.all)
+                #endif
+                content
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .navigation) {
+                    /// Add Card
+                    Button(action: { showAdd.toggle() }) {
+                        Label("Add", systemImage: "plus")
+                    }
+                }
+                
+                ToolbarItemGroup {
+                    /// Reloading Cards
+                    Button(action: reload) {
+                        Label("Reload", systemImage: "arrow.counterclockwise")
+                    }
+                    /// Show Stats of Cards
+                    Button(action: {
+                        showStats.toggle()
+                    }) {
+                        Label("Stats", systemImage: "chart.bar.xaxis")
+                    }
+                    
+                    Button {
+                        showSettings.toggle()
+                    } label: {
+                        Label("Settings", systemImage: "gear")
+                    }
+                }
+            }
+            .sheet(isPresented: $showAdd) {
+                AddCardView(
+                    frontText: $frontText,
+                    backText: $backText,
+                    saveAction: addCard
+                )
+            }
+            .sheet(isPresented: $showStats) {
+                StatsView()
+                    .environmentObject(model)
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+                    #if os(macOS)
+                    .frame(minWidth: 350, minHeight: 450)
+                    #endif
+            }
+            .onReceive(NotificationCenter.default.publisher(for: Notification.Name("NewCard"))) {_ in
+                showAdd.toggle()
+            }
         }
     }
     
     var content: some View {
         ZStack {
-            /// Background
-            #if os(macOS)
-            VisualEffectBlur(
-                material: .popover,
-                blendingMode: .behindWindow
-            )
-            .edgesIgnoringSafeArea(.all)
-            #elseif os(iOS)
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
-            #endif
-            
             /// Base content
             ZStack {
                 /// EmptyState
@@ -86,6 +134,11 @@ struct ContentView: View {
                     )
                 }
                 .id(model.reloadToken)
+                #if !os(visionOS)
+                .sensoryFeedback(.levelChange, trigger: model.reloadToken)
+                .sensoryFeedback(.success, trigger: model.knewCards)
+                .sensoryFeedback(.error, trigger: model.forgotCards)
+                #endif
             }
             .frame(maxWidth: 300, maxHeight:  400)
             .padding()
@@ -122,53 +175,6 @@ struct ContentView: View {
                 }
             }
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .navigation) {
-                /// Add Card
-                Button(action: { showAdd.toggle() }) {
-                    Label("Add", systemImage: "plus")
-                }
-            }
-            
-            ToolbarItemGroup {
-                /// Reloading Cards
-                Button(action: reload) {
-                    Label("Reload", systemImage: "arrow.counterclockwise")
-                }
-                /// Show Stats of Cards
-                Button(action: {
-                    showStats.toggle()
-                }) {
-                    Label("Stats", systemImage: "chart.bar.xaxis")
-                }
-                
-                Button {
-                    showSettings.toggle()
-                } label: {
-                    Label("Settings", systemImage: "gear")
-                }
-            }
-        }
-        .sheet(isPresented: $showAdd) {
-            AddView(
-                frontText: $frontText,
-                backText: $backText,
-                saveAction: addCard
-            )
-        }
-        .sheet(isPresented: $showStats) {
-            Stats()
-                .environmentObject(model)
-        }
-        .sheet(isPresented: $showSettings) {
-            SettingsView()
-                #if os(macOS)
-                .frame(minWidth: 350, minHeight: 450)
-                #endif
-        }
-        .onReceive(NotificationCenter.default.publisher(for: Notification.Name("NewCard"))) {_ in
-            showAdd.toggle()
-        }
     }
     
     func reload() {
@@ -176,9 +182,6 @@ struct ContentView: View {
             model.reloadToken = UUID()
             model.resetStats()
         }
-        #if os(iOS)
-        HapticGenerator.shared.impact(style: .heavy)
-        #endif
     }
     
     func addCard() {
@@ -200,8 +203,9 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+#Preview {
+    @StateObject var dataController = DataController()
+    
+    return ContentView()
+        .environment(\.managedObjectContext, dataController.container.viewContext)
 }

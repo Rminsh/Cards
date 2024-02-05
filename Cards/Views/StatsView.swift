@@ -1,5 +1,5 @@
 //
-//  CardsStats.swift
+//  StatsView.swift
 //  Cards
 //
 //  Created by Armin on 9/27/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Stats: View {
+struct StatsView: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var model: CardsListViewModel
@@ -22,11 +22,28 @@ struct Stats: View {
         NavigationStack {
             ZStack {
                 #if os(iOS)
-                Color("BackgroundColor")
+                Color.background
                     .ignoresSafeArea(.all)
                 #endif
                 
                 content
+            }
+            .navigationTitle("Stats")
+            .toolbar {
+                ToolbarItem {
+                    Button {
+                        dismiss()
+                    } label: {
+                        #if os(iOS)
+                        Label("Close", systemImage: "xmark.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                        #elseif os(macOS)
+                        Text("Close")
+                        #elseif os(visionOS)
+                        Label("Close", systemImage: "xmark")
+                        #endif
+                    }
+                }
             }
         }
     }
@@ -49,7 +66,7 @@ struct Stats: View {
                     .foregroundStyle(.red.gradient)
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
             
             Section {
@@ -68,7 +85,7 @@ struct Stats: View {
                     .foregroundStyle(.green.gradient)
             }
             #if os(iOS)
-            .listRowBackground(Color("BackgroundSecondColor"))
+            .listRowBackground(Color.backgroundSecond)
             #endif
         }
         #if os(macOS)
@@ -77,31 +94,11 @@ struct Stats: View {
         #elseif os(iOS)
         .scrollContentBackground(.hidden)
         #endif
-        .navigationTitle("Stats")
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    dismiss()
-                } label: {
-                    Label("Close", systemImage: "xmark.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                }
-            }
-        }
     }
 }
 
-struct CardsStats_Previews: PreviewProvider {
-    struct Preview: View {
-        
-        @StateObject var model = CardsListViewModel()
-        
-        var body: some View {
-            Stats()
-                .environmentObject(model)
-        }
-    }
-    static var previews: some View {
-        Preview()
-    }
+#Preview {
+    @StateObject var model = CardsListViewModel()
+    
+    return StatsView().environmentObject(model)
 }

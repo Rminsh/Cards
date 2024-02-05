@@ -27,7 +27,7 @@ struct CardContentView: View {
                 Button(action: { showDeleteDialog.toggle() }) {
                     Image(systemName: "trash.fill")
                 }
-                #if os(iOS)
+                #if !os(macOS)
                 .hoverEffect(.lift)
                 #endif
                 
@@ -37,15 +37,14 @@ struct CardContentView: View {
                 Button(action: {
                     withAnimation {
                         showAnswer.toggle()
-                        #if os(iOS)
-                        HapticGenerator.shared.impact()
-                        #endif
                     }
                 }) {
                     Image(systemName: "questionmark.circle.fill")
                 }
-                #if os(iOS)
+                #if !os(macOS)
                 .hoverEffect(.lift)
+                #elseif !os(visionOS)
+                .sensoryFeedback(.warning, trigger: showAnswer)
                 #endif
             }
             .opacity(0.65)
@@ -80,7 +79,7 @@ struct CardContentView: View {
             Image(systemName: rightOptionIcon)
                 .font(.largeTitle)
                 .imageScale(.large)
-                .foregroundColor(.green)
+                .foregroundStyle(.green)
                 .symbolRenderingMode(.hierarchical)
                 .frame(
                     maxWidth: .infinity,
@@ -90,12 +89,15 @@ struct CardContentView: View {
                 .padding()
                 .opacity(direction == .right ? 1 : 0)
                 .animation(.spring(), value: direction)
+                #if !os(visionOS)
+                .sensoryFeedback(.impact(weight: .heavy), trigger: direction == .right)
+                #endif
                 
             /// Left swipe
             Image(systemName: leftOptionIcon)
                 .font(.largeTitle)
                 .imageScale(.large)
-                .foregroundColor(.red)
+                .foregroundStyle(.red)
                 .symbolRenderingMode(.hierarchical)
                 .frame(
                     maxWidth: .infinity,
@@ -105,7 +107,9 @@ struct CardContentView: View {
                 .padding()
                 .opacity(direction == .left ? 1 : 0)
                 .animation(.spring(), value: direction)
-                
+                #if !os(visionOS)
+                .sensoryFeedback(.impact(weight: .heavy), trigger: direction == .left)
+                #endif
         }
         #if os(macOS)
         .background(
@@ -114,7 +118,7 @@ struct CardContentView: View {
                 blendingMode: .withinWindow
             )
         )
-        #elseif os(iOS)
+        #else
         .background(.ultraThinMaterial)
         #endif
         .cornerRadius(12)
@@ -126,15 +130,13 @@ struct CardContentView: View {
     }
 }
 
-struct CardContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardContentView(
-            frontText: "Front text with some long text for testing",
-            backText: "Back text with some long text for testing",
-            direction: nil,
-            deleteAction: {}
-        )
-        .frame(maxWidth: 350, maxHeight: 400)
-        .padding(.all, 50)
-    }
+#Preview {
+    CardContentView(
+        frontText: "Front text with some long text for testing",
+        backText: "Back text with some long text for testing",
+        direction: nil,
+        deleteAction: {}
+    )
+    .frame(maxWidth: 350, maxHeight: 400)
+    .padding(.all, 50)
 }
