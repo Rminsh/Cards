@@ -100,7 +100,7 @@ struct SettingsView: View {
                         .symbolRenderingMode(.hierarchical)
                     #elseif os(macOS)
                     Text("Close")
-                    #elseif os(xrOS)
+                    #elseif os(visionOS)
                     Label("Close", systemImage: "xmark")
                     #endif
                 }

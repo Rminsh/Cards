@@ -134,7 +134,7 @@ struct ContentView: View {
                     )
                 }
                 .id(model.reloadToken)
-                #if !os(xrOS)
+                #if !os(visionOS)
                 .sensoryFeedback(.levelChange, trigger: model.reloadToken)
                 .sensoryFeedback(.success, trigger: model.knewCards)
                 .sensoryFeedback(.error, trigger: model.forgotCards)

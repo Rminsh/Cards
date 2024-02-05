@@ -43,7 +43,7 @@ struct CardContentView: View {
                 }
                 #if !os(macOS)
                 .hoverEffect(.lift)
-                #elseif !os(xrOS)
+                #elseif !os(visionOS)
                 .sensoryFeedback(.warning, trigger: showAnswer)
                 #endif
             }
@@ -89,7 +89,7 @@ struct CardContentView: View {
                 .padding()
                 .opacity(direction == .right ? 1 : 0)
                 .animation(.spring(), value: direction)
-                #if !os(xrOS)
+                #if !os(visionOS)
                 .sensoryFeedback(.impact(weight: .heavy), trigger: direction == .right)
                 #endif
                 
@@ -107,7 +107,7 @@ struct CardContentView: View {
                 .padding()
                 .opacity(direction == .left ? 1 : 0)
                 .animation(.spring(), value: direction)
-                #if !os(xrOS)
+                #if !os(visionOS)
                 .sensoryFeedback(.impact(weight: .heavy), trigger: direction == .left)
                 #endif
         }
