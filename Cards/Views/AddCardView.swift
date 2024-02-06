@@ -7,14 +7,15 @@
 
 import SwiftUI
 
-struct AddCardView: View {
-    
+struct AddCardView {
     @Binding var frontText: String
     @Binding var backText: String
     @State var saveAction: () -> Void
     
     @Environment(\.dismiss) var dismiss
+}
     
+extension AddCardView: View {
     var body: some View {
         NavigationStack {
             ZStack {
@@ -72,11 +73,16 @@ struct AddCardView: View {
         #if os(macOS)
         .frame(width: 300, height: 400)
         #else
-        .background(.thinMaterial)
         .frame(maxWidth: 300, maxHeight: 400)
         #endif
-        .cornerRadius(12)
+        #if os(iOS)
+        .background(.thinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
         .shadow(radius: 2)
+        #elseif os(visionOS)
+        .padding()
+        .glassBackgroundEffect()
+        #endif
         .padding()
     }
     
