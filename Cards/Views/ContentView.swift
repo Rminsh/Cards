@@ -98,20 +98,17 @@ struct ContentView: View {
             /// Base content
             ZStack {
                 /// EmptyState
-                VStack(spacing: 10) {
-                    Image(systemName: cards.isEmpty ? "rectangle.stack.fill.badge.plus" : "app.badge.checkmark.fill")
-                        .font(.largeTitle)
-                    
-                    Text(cards.isEmpty ?
-                         "Cards list is empty, add cards!" :
-                         "Finally, the list is empty. You can check the stats or reload cards."
+                if cards.isEmpty {
+                    ContentUnavailableView(
+                        "Cards list is empty, add cards!",
+                        systemImage: "rectangle.stack.fill.badge.plus"
                     )
-                    .font(.system(.title3, design: .rounded))
-                    .fontWeight(.medium)
-                    .multilineTextAlignment(.center)
+                } else {
+                    ContentUnavailableView(
+                        "Finally, the list is empty. You can check the stats or reload cards.",
+                        systemImage: "app.badge.checkmark.fill"
+                    )
                 }
-                .foregroundStyle(.secondary)
-                .padding()
                 
                 /// Cards
                 CardStack(
