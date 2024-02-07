@@ -472,7 +472,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		C6FCF7F42A6DB1F7009F37C9 /* XCRemoteSwiftPackageReference "SymbolPicker" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/xnth97/SymbolPicker?ref=iosexample.com";
+			repositoryURL = "https://github.com/xnth97/SymbolPicker";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.4.2;

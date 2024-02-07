@@ -1,9 +1,9 @@
 {
   "pins" : [
     {
-      "identity" : "symbolpicker?ref=iosexample.com",
+      "identity" : "symbolpicker",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/xnth97/SymbolPicker?ref=iosexample.com",
+      "location" : "https://github.com/xnth97/SymbolPicker",
       "state" : {
         "revision" : "c4b8e7db14256e5d2a603bb2cde6b69a2b142d9b",
         "version" : "1.5.2"
