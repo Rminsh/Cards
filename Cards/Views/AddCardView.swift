@@ -75,13 +75,14 @@ extension AddCardView: View {
         #else
         .frame(maxWidth: 300, maxHeight: 400)
         #endif
-        #if os(iOS)
-        .background(.thinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        .shadow(radius: 2)
-        #elseif os(visionOS)
-        .padding()
-        .glassBackgroundEffect()
+        #if !os(macOS)
+        .background(.ultraThinMaterial)
+        .clipShape(.rect(cornerRadius: 25, style: .continuous))
+        .background {
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .stroke(.white.opacity(0.3), lineWidth: 1.5)
+        }
+        .shadow(color: .black.opacity(0.2), radius: 25)
         #endif
         .padding()
     }

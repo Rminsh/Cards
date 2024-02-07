@@ -109,9 +109,9 @@
 				C609270128E35D7700EE0873 /* AddCardView.swift */,
 				C670298528E20C440027D293 /* CardContentView.swift */,
 				C603CD0028DF7F6A00B7583E /* ContentView.swift */,
+				C6178E372B7185FE009D70CD /* DirectionSection.swift */,
 				C6FCF7F22A6DA99E009F37C9 /* SettingsView.swift */,
 				C670298728E24EA80027D293 /* StatsView.swift */,
-				C6178E372B7185FE009D70CD /* DirectionSection.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

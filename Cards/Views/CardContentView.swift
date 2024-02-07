@@ -121,12 +121,12 @@ struct CardContentView: View {
         #else
         .background(.ultraThinMaterial)
         #endif
-        #if os(visionOS)
-        .clipShape(RoundedRectangle(cornerRadius: 25))
-        #else
-        .clipShape(RoundedRectangle(cornerRadius: 12))
-        #endif
-        .shadow(radius: 2)
+        .clipShape(.rect(cornerRadius: 25, style: .continuous))
+        .background {
+            RoundedRectangle(cornerRadius: 25, style: .continuous)
+                .stroke(.white.opacity(0.3), lineWidth: 1.5)
+        }
+        .shadow(color: .black.opacity(0.2), radius: 25)
         .alert("Delete this card?", isPresented: $showDeleteDialog) {
             Button("Delete", role: .destructive, action: deleteAction)
             Button("Cancel", role: .cancel, action: {})
